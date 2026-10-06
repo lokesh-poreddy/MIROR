@@ -1,0 +1,2 @@
+"use client";
+export default function GlobalError({reset}:{error:Error & {digest?:string};reset:()=>void}){ return <main className="page-shell"><section className="page-hero"><div className="eyebrow">Something went wrong</div><h1>The page could not be loaded.</h1><p>Try again. If the issue continues, check the deployment logs.</p><button className="button button-solid" onClick={reset}>Try again ↗</button></section></main>; }
