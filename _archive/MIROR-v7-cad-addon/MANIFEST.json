@@ -1,0 +1,16 @@
+{
+  "name": "miror-v7-cad-visual-layer",
+  "version": "7.0.0",
+  "purpose": "Original CAD-inspired / BIM-style visual system for the MIROR corporate site",
+  "files": 14,
+  "validation": {
+    "typescript_tsx_transpile": "pass",
+    "css_brace_integrity": "pass",
+    "zip_integrity": "pending"
+  },
+  "notes": [
+    "Procedural geometry is conceptual visual content.",
+    "Real DWG/DXF/BIM assets require conversion and client publication approval.",
+    "No proprietary construction-company assets are bundled."
+  ]
+}

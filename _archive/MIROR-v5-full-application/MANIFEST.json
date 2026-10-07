@@ -1,0 +1,60 @@
+{
+  "name": "MIROR V5 Full Application Add-on",
+  "version": "5.0.0",
+  "files": [
+    {
+      "path": "V5_ADDON_README.md",
+      "lines": 27,
+      "bytes": 1261,
+      "sha256": "19d9961436494cd63f932e813461603f57eea3dfd6ea9f55e520c81c45091ef1"
+    },
+    {
+      "path": "src/styles/miror-v4.module.css",
+      "lines": 1050,
+      "bytes": 54614,
+      "sha256": "5831f67e4c2e344f89bd9328fc64a74804fefcdcd95b5b51bb80081a045fff23"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "lines": 821,
+      "bytes": 99994,
+      "sha256": "c57b214e89dca5b8643ba5c7ffe998e2facfe72a4c50f1d70a5a36cc1305bf3f"
+    },
+    {
+      "path": "src/data/miror-v4-content.ts",
+      "lines": 851,
+      "bytes": 104714,
+      "sha256": "6e6bed9cbd41435b25668ef39cabe67983cd1b0c086c5d9ad06109a87b69499d"
+    },
+    {
+      "path": "src/components/home/MirorProjectDirectoryV4.tsx",
+      "lines": 881,
+      "bytes": 116945,
+      "sha256": "818cf665b1ccec6d7eb3b2eb00f0f1c62d59752dd737155e7eae0b9a214919a2"
+    },
+    {
+      "path": "src/components/home/MirorHomepage.tsx",
+      "lines": 901,
+      "bytes": 125035,
+      "sha256": "732b1f007b4db22ef8010a6da2a5a60388d1987ec06985b9262ab1cc51510d31"
+    },
+    {
+      "path": "src/components/home/MirorInquiryFormV4.tsx",
+      "lines": 881,
+      "bytes": 112723,
+      "sha256": "73cb03f7fcdf3e55d3a01549de1f7fa6d9737ba28aabf479f2cb67777ee68c9b"
+    },
+    {
+      "path": "src/app/work/page.tsx",
+      "lines": 821,
+      "bytes": 101748,
+      "sha256": "4dcd12650875eecef4361d661efaaac4090342713124f66c07d1cff5e95be033"
+    },
+    {
+      "path": "src/app/work/[slug]/page.tsx",
+      "lines": 851,
+      "bytes": 108552,
+      "sha256": "7eb182cfa7894076ce738d5e64cc937ecd9c4fc3b478a1e3d78f1a7207199509"
+    }
+  ]
+}

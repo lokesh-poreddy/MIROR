@@ -1,0 +1,29 @@
+{
+  "version": "V8",
+  "scope": "sections-01-15",
+  "components": [
+    "src/components/v8/MirorV8Hero.tsx",
+    "src/components/v8/MirorV8EngineeringHud.tsx",
+    "src/components/v8/MirorV8CompanyStatement.tsx",
+    "src/components/v8/MirorV8LegacyTimeline.tsx",
+    "src/components/v8/MirorV8Capabilities.tsx",
+    "src/components/v8/MirorV8CapabilityMatrix.tsx",
+    "src/components/v8/MirorV8ExecutionProcess.tsx",
+    "src/components/v8/MirorV8EngineeringShowcase.tsx",
+    "src/components/v8/MirorV8SelectedWorks.tsx",
+    "src/components/v8/MirorV8ProjectDirectory.tsx",
+    "src/components/v8/MirorV8ProjectCaseStudyEntry.tsx",
+    "src/components/v8/MirorV8ProgressStory.tsx",
+    "src/components/v8/MirorV8BuiltFromGroundUp.tsx",
+    "src/components/v8/MirorV8QualitySafety.tsx",
+    "src/components/v8/MirorV8EngineeringTechnology.tsx"
+  ],
+  "data": [
+    "src/data/v8-shared.ts",
+    "src/data/projects-v8.ts"
+  ],
+  "styles": [
+    "src/styles/miror-v8-sections.css"
+  ],
+  "requires_client_project_sheet": true
+}

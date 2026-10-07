@@ -1,0 +1,21 @@
+{
+  "docs/V8_COMPOSITION_EXAMPLE.tsx": 13,
+  "src/styles/miror-v8-sections.css": 1730,
+  "src/data/v8-shared.ts": 799,
+  "src/data/projects-v8.ts": 805,
+  "src/components/v8/MirorV8Capabilities.tsx": 1005,
+  "src/components/v8/MirorV8Hero.tsx": 1005,
+  "src/components/v8/MirorV8ProjectCaseStudyEntry.tsx": 1005,
+  "src/components/v8/MirorV8EngineeringHud.tsx": 1005,
+  "src/components/v8/MirorV8SelectedWorks.tsx": 1005,
+  "src/components/v8/MirorV8QualitySafety.tsx": 1005,
+  "src/components/v8/MirorV8EngineeringShowcase.tsx": 1005,
+  "src/components/v8/MirorV8ProgressStory.tsx": 1005,
+  "src/components/v8/MirorV8LegacyTimeline.tsx": 1005,
+  "src/components/v8/MirorV8ProjectDirectory.tsx": 1005,
+  "src/components/v8/MirorV8ExecutionProcess.tsx": 1005,
+  "src/components/v8/MirorV8CompanyStatement.tsx": 1005,
+  "src/components/v8/MirorV8BuiltFromGroundUp.tsx": 1005,
+  "src/components/v8/MirorV8EngineeringTechnology.tsx": 1005,
+  "src/components/v8/MirorV8CapabilityMatrix.tsx": 1005
+}

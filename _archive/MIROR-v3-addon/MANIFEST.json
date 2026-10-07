@@ -1,0 +1,16 @@
+{
+  "name": "MIROR V3 Add-on",
+  "version": "3.0.0",
+  "purpose": "Large-code production layer for the MIROR corporate website",
+  "integration": "Additive",
+  "runtime": "Next.js + React + TypeScript",
+  "codeLineRequirement": 800,
+  "modules": [
+    "src/lib/miror-design-system.ts",
+    "src/hooks/useMirorExperienceV3.ts",
+    "src/components/experience/MirorCommandCenter.tsx",
+    "src/components/projects/MirorProjectStoryEngine.tsx",
+    "src/lib/services/miror-runtime.ts",
+    "src/lib/services/media-performance-engine.ts"
+  ]
+}

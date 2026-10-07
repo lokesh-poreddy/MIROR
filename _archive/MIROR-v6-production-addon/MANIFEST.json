@@ -1,0 +1,83 @@
+{
+  "version": "6.2.0",
+  "files": [
+    {
+      "path": "V6_PRODUCTION_ADDON_README.md",
+      "bytes": 2922,
+      "lines": 39,
+      "sha256": "99f472b0f9076910a603fd46571cfa77674e80545b8e3d143d29555271d04f41"
+    },
+    {
+      "path": "db/miror-v6-production.sql",
+      "bytes": 51067,
+      "lines": 936,
+      "sha256": "583e8ce6549c853c4784ef493179ce105d53057c612067b5d280480c0fe7dd3e"
+    },
+    {
+      "path": "services/java/MirorIntegrationGateway.java",
+      "bytes": 55753,
+      "lines": 1046,
+      "sha256": "e9b8be19e0027e42693d59233f7701dcd55e6d622ce7bd65ef6142911c373228"
+    },
+    {
+      "path": "src/app/v6/api/route.ts",
+      "bytes": 23850,
+      "lines": 917,
+      "sha256": "93b96cc780198b39bcd14f80f3832d976a014e04df8a7b23f97b6b66552dfeaf"
+    },
+    {
+      "path": "src/components/v6/MirorV6CaseStudy.tsx",
+      "bytes": 54253,
+      "lines": 956,
+      "sha256": "afff2da269502c0797d8775cbdc8e27824410d364e8f8ad68b378e63c6e39082"
+    },
+    {
+      "path": "src/components/v6/MirorV6Homepage.tsx",
+      "bytes": 35301,
+      "lines": 839,
+      "sha256": "06829a0e551ab9e11f8ccd598b09ce98c16d8c63ea332c3db61a898c8d1edf8b"
+    },
+    {
+      "path": "src/components/v6/MirorV6Navigation.tsx",
+      "bytes": 49581,
+      "lines": 1109,
+      "sha256": "4e7a7f0dc9795909e12974ea818a8dd3cd0d801bee0a86bc429aa679897ac7b4"
+    },
+    {
+      "path": "src/components/v6/MirorV6ProjectPortfolio.tsx",
+      "bytes": 74331,
+      "lines": 1234,
+      "sha256": "b3d56982041a0141e717e890323ecc690147aff18204cb7accf6b208c86b6b86"
+    },
+    {
+      "path": "src/lib/v6/miror-v6-contracts.ts",
+      "bytes": 33945,
+      "lines": 883,
+      "sha256": "22bcdbe51674ac420639ff9edd9e3e03dcafc8d9e74308118cb0a7d882a9262b"
+    },
+    {
+      "path": "src/lib/v6/miror-v6-seo.ts",
+      "bytes": 23716,
+      "lines": 920,
+      "sha256": "02818c92d297554d653e10cb8ebdb2d784505a26df1585d3b3f859a8f23eac55"
+    },
+    {
+      "path": "src/lib/v6/miror-v6-server.ts",
+      "bytes": 32931,
+      "lines": 1145,
+      "sha256": "9d01d6d7df801ee4169f3a7d36df0afbead1908040e59dd9754da57276e065e7"
+    },
+    {
+      "path": "src/styles/miror-v6-production.css",
+      "bytes": 69459,
+      "lines": 967,
+      "sha256": "5ac5fdfd470ed62e8c93bfdf384714a0362d4a0dead5c78593b09d9856f6723d"
+    },
+    {
+      "path": "tools/python/miror_v6_content_audit.py",
+      "bytes": 61031,
+      "lines": 1316,
+      "sha256": "a282aa7dcb3c38d10e21124d5c78a02cb3a833839b55e94cb511b14c6c176325"
+    }
+  ]
+}

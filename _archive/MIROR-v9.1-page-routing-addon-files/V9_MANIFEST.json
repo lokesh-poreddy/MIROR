@@ -1,0 +1,32 @@
+{
+  "name": "MIROR V9 Corporate Depth Add-on",
+  "version": "9.0.0",
+  "sections": [
+    "Sustainability & Environment",
+    "People & Teams",
+    "Leadership",
+    "Careers",
+    "Clients & Partners",
+    "Locations",
+    "Insights & Innovation",
+    "Resources",
+    "Why Miror",
+    "FAQs",
+    "Contact",
+    "Smart Contact Qualification",
+    "Full-screen Corporate Menu"
+  ],
+  "excluded": [
+    "Global Search",
+    "Command-K Search"
+  ],
+  "mail": "p.lokeshreddy2005@gmail.com",
+  "line_rule": "Each individual section file must exceed 800 lines.",
+  "source_references": [
+    "https://shapoorji.in/",
+    "https://www.turnerconstruction.com/careers",
+    "https://www.turnerconstruction.com/",
+    "https://afcons.com/career/",
+    "https://careers.tataprojects.com/"
+  ]
+}

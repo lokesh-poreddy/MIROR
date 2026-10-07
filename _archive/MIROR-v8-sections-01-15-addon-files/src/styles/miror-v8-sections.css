@@ -1,0 +1,1730 @@
+@layer base, components, utilities;
+
+@layer base {
+  :root {
+    --miror-v8-paper: #f4f1e9;
+    --miror-v8-ink: #111315;
+    --miror-v8-muted: #77736b;
+    --miror-v8-accent: #b9892f;
+    --miror-v8-blueprint: #192737;
+    --miror-v8-line: rgba(17, 19, 21, .14);
+    --miror-v8-speed-fast: 180ms;
+    --miror-v8-speed-medium: 420ms;
+    --miror-v8-speed-slow: 760ms;
+    --miror-v8-ease: cubic-bezier(.22,.61,.36,1);
+  }
+}
+
+@layer components {
+  .miror-v8-section { position: relative; overflow: clip; padding: clamp(72px,10vw,160px) clamp(18px,4vw,72px); background: var(--miror-v8-paper); color: var(--miror-v8-ink); border-top: 1px solid var(--miror-v8-line); isolation: isolate; }
+  .miror-v8-section--tone-ink { background: var(--miror-v8-ink); color: var(--miror-v8-paper); }
+  .miror-v8-section--tone-sand { background: #e7dfd0; }
+  .miror-v8-section--tone-steel { background: #dce1e3; }
+  .miror-v8-section__header { max-width: 1180px; margin-inline:auto; margin-bottom: 42px; }
+  .miror-v8-eyebrow { margin-bottom: 18px; font-size: 11px; line-height:1.2; letter-spacing:.16em; text-transform:uppercase; color: var(--miror-v8-muted); }
+  .miror-v8-heading { margin:0; max-width:920px; font-size:clamp(40px,7vw,104px); line-height:.94; letter-spacing:-.05em; font-weight:560; }
+  .miror-v8-description { max-width:760px; margin:22px 0 0; color:color-mix(in srgb,currentColor 66%, transparent); font-size:clamp(16px,1.8vw,21px); line-height:1.55; }
+  .miror-v8-meta-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:28px; font-size:11px; line-height:1.3; text-transform:uppercase; letter-spacing:.1em; color:var(--miror-v8-muted); }
+  .miror-v8-control-row { max-width:1180px; margin:0 auto 18px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .miror-v8-search { flex:1 1 260px; }
+  .miror-v8-search input { width:100%; min-height:44px; border:1px solid var(--miror-v8-line); background:transparent; color:currentColor; padding:0 14px; outline:none; }
+  .miror-v8-search input:focus-visible, .miror-v8-control:focus-visible, .miror-v8-layer:focus-visible, .miror-v8-panel__action:focus-visible, .miror-v8-primary:focus-visible { outline:2px solid var(--miror-v8-accent); outline-offset:3px; }
+  .miror-v8-control { min-height:44px; border:1px solid var(--miror-v8-line); background:transparent; color:currentColor; padding:0 14px; cursor:pointer; transition:transform var(--miror-v8-speed-medium) var(--miror-v8-ease),background var(--miror-v8-speed-medium) var(--miror-v8-ease); }
+  .miror-v8-control:hover { transform:translateY(-2px); background:color-mix(in srgb,currentColor 6%,transparent); }
+  .miror-v8-layer-panel { max-width:1180px; margin:0 auto 18px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--miror-v8-line); background:var(--miror-v8-line); gap:1px; }
+  .miror-v8-layer { min-height:76px; display:grid; grid-template-columns:32px 1fr; gap:3px 10px; padding:12px 14px; border:0; background:var(--miror-v8-paper); color:var(--miror-v8-ink); text-align:left; cursor:pointer; }
+  .miror-v8-section--tone-ink .miror-v8-layer { background:var(--miror-v8-ink); color:var(--miror-v8-paper); }
+  .miror-v8-layer.is-active { background:color-mix(in srgb,var(--miror-v8-accent) 17%,currentColor 3%); }
+  .miror-v8-layer span { opacity:.5; }
+  .miror-v8-layer small { grid-column:2; opacity:.56; }
+  .miror-v8-panel-grid { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); background:var(--miror-v8-line); gap:1px; border:1px solid var(--miror-v8-line); }
+  .miror-v8-panel { min-height:270px; display:grid; align-content:space-between; padding:18px; background:var(--miror-v8-paper); color:var(--miror-v8-ink); transition:transform var(--miror-v8-speed-medium) var(--miror-v8-ease),background var(--miror-v8-speed-medium) var(--miror-v8-ease); }
+  .miror-v8-section--tone-ink .miror-v8-panel { background:var(--miror-v8-ink); color:var(--miror-v8-paper); }
+  .miror-v8-panel:hover { transform:translateY(-4px); background:color-mix(in srgb,var(--miror-v8-accent) 8%,currentColor 3%); }
+  .miror-v8-panel__index { font-size:12px; opacity:.5; }
+  .miror-v8-panel__title { margin:20px 0 10px; font-size:28px; line-height:1; letter-spacing:-.03em; }
+  .miror-v8-panel__detail { max-width:300px; margin:0 0 20px; font-size:14px; line-height:1.5; opacity:.68; }
+  .miror-v8-panel__action { border:0; padding:0; background:transparent; color:currentColor; font:inherit; font-size:11px; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; justify-self:start; }
+  .miror-v8-detail-strip { max-width:1180px; margin:18px auto 0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); background:var(--miror-v8-line); gap:1px; border:1px solid var(--miror-v8-line); }
+  .miror-v8-detail-strip > div { padding:14px 16px; background:color-mix(in srgb,currentColor 3%,transparent); display:grid; gap:6px; }
+  .miror-v8-detail-label { font-size:10px; letter-spacing:.13em; text-transform:uppercase; opacity:.48; }
+  .miror-v8-detail-strip strong { font-size:13px; line-height:1.35; }
+  .miror-v8-section__footer { max-width:1180px; margin:26px auto 0; display:flex; justify-content:space-between; align-items:center; gap:18px; }
+  .miror-v8-primary { padding:14px 18px; border:1px solid currentColor; background:var(--miror-v8-ink); color:var(--miror-v8-paper); cursor:pointer; }
+  .miror-v8-section--tone-ink .miror-v8-primary { background:var(--miror-v8-paper); color:var(--miror-v8-ink); }
+  .miror-v8-footnote { max-width:620px; font-size:11px; line-height:1.55; opacity:.5; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  
+  .miror-v8-u-0001 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0002 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0002 { opacity: 0.22; }
+  .miror-v8-u-0003 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0003 { transition-delay: 3ms; }
+  .miror-v8-u-0004 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0004 { opacity: 0.24; }
+  .miror-v8-u-0005 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0006 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0006 { opacity: 0.26; }
+  .miror-v8-delay-0006 { transition-delay: 6ms; }
+  .miror-v8-u-0007 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0008 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0008 { opacity: 0.28; }
+  .miror-v8-u-0009 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0009 { transition-delay: 9ms; }
+  .miror-v8-u-0010 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0010 { opacity: 0.30; }
+  .miror-v8-u-0011 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0012 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0012 { opacity: 0.32; }
+  .miror-v8-delay-0012 { transition-delay: 12ms; }
+  .miror-v8-u-0013 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0014 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0014 { opacity: 0.34; }
+  .miror-v8-u-0015 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0015 { transition-delay: 15ms; }
+  .miror-v8-u-0016 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0016 { opacity: 0.36; }
+  .miror-v8-u-0017 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0018 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0018 { opacity: 0.38; }
+  .miror-v8-delay-0018 { transition-delay: 18ms; }
+  .miror-v8-u-0019 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0020 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0020 { opacity: 0.40; }
+  .miror-v8-u-0021 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0021 { transition-delay: 21ms; }
+  .miror-v8-u-0022 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0022 { opacity: 0.42; }
+  .miror-v8-u-0023 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0024 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0024 { opacity: 0.44; }
+  .miror-v8-delay-0024 { transition-delay: 24ms; }
+  .miror-v8-u-0025 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0026 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0026 { opacity: 0.46; }
+  .miror-v8-u-0027 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0027 { transition-delay: 27ms; }
+  .miror-v8-u-0028 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0028 { opacity: 0.48; }
+  .miror-v8-u-0029 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0030 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0030 { opacity: 0.50; }
+  .miror-v8-delay-0030 { transition-delay: 30ms; }
+  .miror-v8-u-0031 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0032 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0032 { opacity: 0.52; }
+  .miror-v8-u-0033 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0033 { transition-delay: 33ms; }
+  .miror-v8-u-0034 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0034 { opacity: 0.54; }
+  .miror-v8-u-0035 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0036 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0036 { opacity: 0.56; }
+  .miror-v8-delay-0036 { transition-delay: 36ms; }
+  .miror-v8-u-0037 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0038 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0038 { opacity: 0.58; }
+  .miror-v8-u-0039 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0039 { transition-delay: 39ms; }
+  .miror-v8-u-0040 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0040 { opacity: 0.60; }
+  .miror-v8-u-0041 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0042 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0042 { opacity: 0.62; }
+  .miror-v8-delay-0042 { transition-delay: 42ms; }
+  .miror-v8-u-0043 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0044 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0044 { opacity: 0.64; }
+  .miror-v8-u-0045 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0045 { transition-delay: 45ms; }
+  .miror-v8-u-0046 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0046 { opacity: 0.66; }
+  .miror-v8-u-0047 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0048 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0048 { opacity: 0.68; }
+  .miror-v8-delay-0048 { transition-delay: 48ms; }
+  .miror-v8-u-0049 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0050 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0050 { opacity: 0.70; }
+  .miror-v8-u-0051 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0051 { transition-delay: 51ms; }
+  .miror-v8-u-0052 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0052 { opacity: 0.72; }
+  .miror-v8-u-0053 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0054 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0054 { opacity: 0.74; }
+  .miror-v8-delay-0054 { transition-delay: 54ms; }
+  .miror-v8-u-0055 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0056 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0056 { opacity: 0.76; }
+  .miror-v8-u-0057 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0057 { transition-delay: 57ms; }
+  .miror-v8-u-0058 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0058 { opacity: 0.78; }
+  .miror-v8-u-0059 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0060 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0060 { opacity: 0.80; }
+  .miror-v8-delay-0060 { transition-delay: 60ms; }
+  .miror-v8-u-0061 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0062 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0062 { opacity: 0.82; }
+  .miror-v8-u-0063 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0063 { transition-delay: 63ms; }
+  .miror-v8-u-0064 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0064 { opacity: 0.84; }
+  .miror-v8-u-0065 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0066 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0066 { opacity: 0.86; }
+  .miror-v8-delay-0066 { transition-delay: 66ms; }
+  .miror-v8-u-0067 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0068 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0068 { opacity: 0.88; }
+  .miror-v8-u-0069 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0069 { transition-delay: 69ms; }
+  .miror-v8-u-0070 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0070 { opacity: 0.20; }
+  .miror-v8-u-0071 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0072 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0072 { opacity: 0.22; }
+  .miror-v8-delay-0072 { transition-delay: 72ms; }
+  .miror-v8-u-0073 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0074 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0074 { opacity: 0.24; }
+  .miror-v8-u-0075 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0075 { transition-delay: 75ms; }
+  .miror-v8-u-0076 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0076 { opacity: 0.26; }
+  .miror-v8-u-0077 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0078 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0078 { opacity: 0.28; }
+  .miror-v8-delay-0078 { transition-delay: 78ms; }
+  .miror-v8-u-0079 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0080 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0080 { opacity: 0.30; }
+  .miror-v8-u-0081 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0081 { transition-delay: 81ms; }
+  .miror-v8-u-0082 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0082 { opacity: 0.32; }
+  .miror-v8-u-0083 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0084 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0084 { opacity: 0.34; }
+  .miror-v8-delay-0084 { transition-delay: 84ms; }
+  .miror-v8-u-0085 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0086 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0086 { opacity: 0.36; }
+  .miror-v8-u-0087 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0087 { transition-delay: 87ms; }
+  .miror-v8-u-0088 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0088 { opacity: 0.38; }
+  .miror-v8-u-0089 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0090 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0090 { opacity: 0.40; }
+  .miror-v8-delay-0090 { transition-delay: 90ms; }
+  .miror-v8-u-0091 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0092 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0092 { opacity: 0.42; }
+  .miror-v8-u-0093 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0093 { transition-delay: 93ms; }
+  .miror-v8-u-0094 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0094 { opacity: 0.44; }
+  .miror-v8-u-0095 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0096 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0096 { opacity: 0.46; }
+  .miror-v8-delay-0096 { transition-delay: 96ms; }
+  .miror-v8-u-0097 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0098 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0098 { opacity: 0.48; }
+  .miror-v8-u-0099 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0099 { transition-delay: 99ms; }
+  .miror-v8-u-0100 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0100 { opacity: 0.50; }
+  .miror-v8-u-0101 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0102 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0102 { opacity: 0.52; }
+  .miror-v8-delay-0102 { transition-delay: 102ms; }
+  .miror-v8-u-0103 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0104 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0104 { opacity: 0.54; }
+  .miror-v8-u-0105 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0105 { transition-delay: 105ms; }
+  .miror-v8-u-0106 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0106 { opacity: 0.56; }
+  .miror-v8-u-0107 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0108 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0108 { opacity: 0.58; }
+  .miror-v8-delay-0108 { transition-delay: 108ms; }
+  .miror-v8-u-0109 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0110 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0110 { opacity: 0.60; }
+  .miror-v8-u-0111 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0111 { transition-delay: 111ms; }
+  .miror-v8-u-0112 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0112 { opacity: 0.62; }
+  .miror-v8-u-0113 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0114 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0114 { opacity: 0.64; }
+  .miror-v8-delay-0114 { transition-delay: 114ms; }
+  .miror-v8-u-0115 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0116 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0116 { opacity: 0.66; }
+  .miror-v8-u-0117 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0117 { transition-delay: 117ms; }
+  .miror-v8-u-0118 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0118 { opacity: 0.68; }
+  .miror-v8-u-0119 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0120 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0120 { opacity: 0.70; }
+  .miror-v8-delay-0120 { transition-delay: 120ms; }
+  .miror-v8-u-0121 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0122 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0122 { opacity: 0.72; }
+  .miror-v8-u-0123 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0123 { transition-delay: 123ms; }
+  .miror-v8-u-0124 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0124 { opacity: 0.74; }
+  .miror-v8-u-0125 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0126 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0126 { opacity: 0.76; }
+  .miror-v8-delay-0126 { transition-delay: 126ms; }
+  .miror-v8-u-0127 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0128 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0128 { opacity: 0.78; }
+  .miror-v8-u-0129 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0129 { transition-delay: 129ms; }
+  .miror-v8-u-0130 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0130 { opacity: 0.80; }
+  .miror-v8-u-0131 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0132 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0132 { opacity: 0.82; }
+  .miror-v8-delay-0132 { transition-delay: 132ms; }
+  .miror-v8-u-0133 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0134 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0134 { opacity: 0.84; }
+  .miror-v8-u-0135 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0135 { transition-delay: 135ms; }
+  .miror-v8-u-0136 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0136 { opacity: 0.86; }
+  .miror-v8-u-0137 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0138 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0138 { opacity: 0.88; }
+  .miror-v8-delay-0138 { transition-delay: 138ms; }
+  .miror-v8-u-0139 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0140 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0140 { opacity: 0.20; }
+  .miror-v8-u-0141 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0141 { transition-delay: 141ms; }
+  .miror-v8-u-0142 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0142 { opacity: 0.22; }
+  .miror-v8-u-0143 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0144 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0144 { opacity: 0.24; }
+  .miror-v8-delay-0144 { transition-delay: 144ms; }
+  .miror-v8-u-0145 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0146 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0146 { opacity: 0.26; }
+  .miror-v8-u-0147 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0147 { transition-delay: 147ms; }
+  .miror-v8-u-0148 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0148 { opacity: 0.28; }
+  .miror-v8-u-0149 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0150 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0150 { opacity: 0.30; }
+  .miror-v8-delay-0150 { transition-delay: 150ms; }
+  .miror-v8-u-0151 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0152 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0152 { opacity: 0.32; }
+  .miror-v8-u-0153 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0153 { transition-delay: 153ms; }
+  .miror-v8-u-0154 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0154 { opacity: 0.34; }
+  .miror-v8-u-0155 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0156 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0156 { opacity: 0.36; }
+  .miror-v8-delay-0156 { transition-delay: 156ms; }
+  .miror-v8-u-0157 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0158 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0158 { opacity: 0.38; }
+  .miror-v8-u-0159 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0159 { transition-delay: 159ms; }
+  .miror-v8-u-0160 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0160 { opacity: 0.40; }
+  .miror-v8-u-0161 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0162 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0162 { opacity: 0.42; }
+  .miror-v8-delay-0162 { transition-delay: 162ms; }
+  .miror-v8-u-0163 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0164 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0164 { opacity: 0.44; }
+  .miror-v8-u-0165 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0165 { transition-delay: 165ms; }
+  .miror-v8-u-0166 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0166 { opacity: 0.46; }
+  .miror-v8-u-0167 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0168 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0168 { opacity: 0.48; }
+  .miror-v8-delay-0168 { transition-delay: 168ms; }
+  .miror-v8-u-0169 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0170 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0170 { opacity: 0.50; }
+  .miror-v8-u-0171 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0171 { transition-delay: 171ms; }
+  .miror-v8-u-0172 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0172 { opacity: 0.52; }
+  .miror-v8-u-0173 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0174 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0174 { opacity: 0.54; }
+  .miror-v8-delay-0174 { transition-delay: 174ms; }
+  .miror-v8-u-0175 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0176 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0176 { opacity: 0.56; }
+  .miror-v8-u-0177 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0177 { transition-delay: 177ms; }
+  .miror-v8-u-0178 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0178 { opacity: 0.58; }
+  .miror-v8-u-0179 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0180 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0180 { opacity: 0.60; }
+  .miror-v8-delay-0180 { transition-delay: 180ms; }
+  .miror-v8-u-0181 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0182 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0182 { opacity: 0.62; }
+  .miror-v8-u-0183 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0183 { transition-delay: 183ms; }
+  .miror-v8-u-0184 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0184 { opacity: 0.64; }
+  .miror-v8-u-0185 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0186 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0186 { opacity: 0.66; }
+  .miror-v8-delay-0186 { transition-delay: 186ms; }
+  .miror-v8-u-0187 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0188 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0188 { opacity: 0.68; }
+  .miror-v8-u-0189 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0189 { transition-delay: 189ms; }
+  .miror-v8-u-0190 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0190 { opacity: 0.70; }
+  .miror-v8-u-0191 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0192 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0192 { opacity: 0.72; }
+  .miror-v8-delay-0192 { transition-delay: 192ms; }
+  .miror-v8-u-0193 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0194 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0194 { opacity: 0.74; }
+  .miror-v8-u-0195 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0195 { transition-delay: 195ms; }
+  .miror-v8-u-0196 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0196 { opacity: 0.76; }
+  .miror-v8-u-0197 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0198 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0198 { opacity: 0.78; }
+  .miror-v8-delay-0198 { transition-delay: 198ms; }
+  .miror-v8-u-0199 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0200 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0200 { opacity: 0.80; }
+  .miror-v8-u-0201 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0201 { transition-delay: 201ms; }
+  .miror-v8-u-0202 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0202 { opacity: 0.82; }
+  .miror-v8-u-0203 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0204 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0204 { opacity: 0.84; }
+  .miror-v8-delay-0204 { transition-delay: 204ms; }
+  .miror-v8-u-0205 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0206 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0206 { opacity: 0.86; }
+  .miror-v8-u-0207 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0207 { transition-delay: 207ms; }
+  .miror-v8-u-0208 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0208 { opacity: 0.88; }
+  .miror-v8-u-0209 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0210 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0210 { opacity: 0.20; }
+  .miror-v8-delay-0210 { transition-delay: 210ms; }
+  .miror-v8-u-0211 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0212 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0212 { opacity: 0.22; }
+  .miror-v8-u-0213 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0213 { transition-delay: 213ms; }
+  .miror-v8-u-0214 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0214 { opacity: 0.24; }
+  .miror-v8-u-0215 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0216 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0216 { opacity: 0.26; }
+  .miror-v8-delay-0216 { transition-delay: 216ms; }
+  .miror-v8-u-0217 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0218 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0218 { opacity: 0.28; }
+  .miror-v8-u-0219 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0219 { transition-delay: 219ms; }
+  .miror-v8-u-0220 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0220 { opacity: 0.30; }
+  .miror-v8-u-0221 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0222 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0222 { opacity: 0.32; }
+  .miror-v8-delay-0222 { transition-delay: 222ms; }
+  .miror-v8-u-0223 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0224 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0224 { opacity: 0.34; }
+  .miror-v8-u-0225 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0225 { transition-delay: 225ms; }
+  .miror-v8-u-0226 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0226 { opacity: 0.36; }
+  .miror-v8-u-0227 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0228 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0228 { opacity: 0.38; }
+  .miror-v8-delay-0228 { transition-delay: 228ms; }
+  .miror-v8-u-0229 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0230 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0230 { opacity: 0.40; }
+  .miror-v8-u-0231 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0231 { transition-delay: 231ms; }
+  .miror-v8-u-0232 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0232 { opacity: 0.42; }
+  .miror-v8-u-0233 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0234 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0234 { opacity: 0.44; }
+  .miror-v8-delay-0234 { transition-delay: 234ms; }
+  .miror-v8-u-0235 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0236 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0236 { opacity: 0.46; }
+  .miror-v8-u-0237 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0237 { transition-delay: 237ms; }
+  .miror-v8-u-0238 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0238 { opacity: 0.48; }
+  .miror-v8-u-0239 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0240 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0240 { opacity: 0.50; }
+  .miror-v8-delay-0240 { transition-delay: 240ms; }
+  .miror-v8-u-0241 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0242 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0242 { opacity: 0.52; }
+  .miror-v8-u-0243 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0243 { transition-delay: 243ms; }
+  .miror-v8-u-0244 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0244 { opacity: 0.54; }
+  .miror-v8-u-0245 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0246 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0246 { opacity: 0.56; }
+  .miror-v8-delay-0246 { transition-delay: 246ms; }
+  .miror-v8-u-0247 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0248 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0248 { opacity: 0.58; }
+  .miror-v8-u-0249 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0249 { transition-delay: 249ms; }
+  .miror-v8-u-0250 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0250 { opacity: 0.60; }
+  .miror-v8-u-0251 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0252 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0252 { opacity: 0.62; }
+  .miror-v8-delay-0252 { transition-delay: 252ms; }
+  .miror-v8-u-0253 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0254 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0254 { opacity: 0.64; }
+  .miror-v8-u-0255 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0255 { transition-delay: 255ms; }
+  .miror-v8-u-0256 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0256 { opacity: 0.66; }
+  .miror-v8-u-0257 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0258 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0258 { opacity: 0.68; }
+  .miror-v8-delay-0258 { transition-delay: 258ms; }
+  .miror-v8-u-0259 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0260 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0260 { opacity: 0.70; }
+  .miror-v8-u-0261 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0261 { transition-delay: 261ms; }
+  .miror-v8-u-0262 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0262 { opacity: 0.72; }
+  .miror-v8-u-0263 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0264 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0264 { opacity: 0.74; }
+  .miror-v8-delay-0264 { transition-delay: 264ms; }
+  .miror-v8-u-0265 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0266 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0266 { opacity: 0.76; }
+  .miror-v8-u-0267 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0267 { transition-delay: 267ms; }
+  .miror-v8-u-0268 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0268 { opacity: 0.78; }
+  .miror-v8-u-0269 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0270 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0270 { opacity: 0.80; }
+  .miror-v8-delay-0270 { transition-delay: 270ms; }
+  .miror-v8-u-0271 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0272 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0272 { opacity: 0.82; }
+  .miror-v8-u-0273 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0273 { transition-delay: 273ms; }
+  .miror-v8-u-0274 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0274 { opacity: 0.84; }
+  .miror-v8-u-0275 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0276 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0276 { opacity: 0.86; }
+  .miror-v8-delay-0276 { transition-delay: 276ms; }
+  .miror-v8-u-0277 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0278 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0278 { opacity: 0.88; }
+  .miror-v8-u-0279 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0279 { transition-delay: 279ms; }
+  .miror-v8-u-0280 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0280 { opacity: 0.20; }
+  .miror-v8-u-0281 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0282 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0282 { opacity: 0.22; }
+  .miror-v8-delay-0282 { transition-delay: 282ms; }
+  .miror-v8-u-0283 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0284 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0284 { opacity: 0.24; }
+  .miror-v8-u-0285 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0285 { transition-delay: 285ms; }
+  .miror-v8-u-0286 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0286 { opacity: 0.26; }
+  .miror-v8-u-0287 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0288 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0288 { opacity: 0.28; }
+  .miror-v8-delay-0288 { transition-delay: 288ms; }
+  .miror-v8-u-0289 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0290 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0290 { opacity: 0.30; }
+  .miror-v8-u-0291 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0291 { transition-delay: 291ms; }
+  .miror-v8-u-0292 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0292 { opacity: 0.32; }
+  .miror-v8-u-0293 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0294 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0294 { opacity: 0.34; }
+  .miror-v8-delay-0294 { transition-delay: 294ms; }
+  .miror-v8-u-0295 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0296 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0296 { opacity: 0.36; }
+  .miror-v8-u-0297 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0297 { transition-delay: 297ms; }
+  .miror-v8-u-0298 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0298 { opacity: 0.38; }
+  .miror-v8-u-0299 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0300 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0300 { opacity: 0.40; }
+  .miror-v8-delay-0300 { transition-delay: 300ms; }
+  .miror-v8-u-0301 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0302 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0302 { opacity: 0.42; }
+  .miror-v8-u-0303 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0303 { transition-delay: 303ms; }
+  .miror-v8-u-0304 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0304 { opacity: 0.44; }
+  .miror-v8-u-0305 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0306 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0306 { opacity: 0.46; }
+  .miror-v8-delay-0306 { transition-delay: 306ms; }
+  .miror-v8-u-0307 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0308 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0308 { opacity: 0.48; }
+  .miror-v8-u-0309 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0309 { transition-delay: 309ms; }
+  .miror-v8-u-0310 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0310 { opacity: 0.50; }
+  .miror-v8-u-0311 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0312 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0312 { opacity: 0.52; }
+  .miror-v8-delay-0312 { transition-delay: 312ms; }
+  .miror-v8-u-0313 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0314 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0314 { opacity: 0.54; }
+  .miror-v8-u-0315 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0315 { transition-delay: 315ms; }
+  .miror-v8-u-0316 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0316 { opacity: 0.56; }
+  .miror-v8-u-0317 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0318 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0318 { opacity: 0.58; }
+  .miror-v8-delay-0318 { transition-delay: 318ms; }
+  .miror-v8-u-0319 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0320 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0320 { opacity: 0.60; }
+  .miror-v8-u-0321 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0321 { transition-delay: 321ms; }
+  .miror-v8-u-0322 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0322 { opacity: 0.62; }
+  .miror-v8-u-0323 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0324 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0324 { opacity: 0.64; }
+  .miror-v8-delay-0324 { transition-delay: 324ms; }
+  .miror-v8-u-0325 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0326 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0326 { opacity: 0.66; }
+  .miror-v8-u-0327 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0327 { transition-delay: 327ms; }
+  .miror-v8-u-0328 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0328 { opacity: 0.68; }
+  .miror-v8-u-0329 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0330 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0330 { opacity: 0.70; }
+  .miror-v8-delay-0330 { transition-delay: 330ms; }
+  .miror-v8-u-0331 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0332 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0332 { opacity: 0.72; }
+  .miror-v8-u-0333 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0333 { transition-delay: 333ms; }
+  .miror-v8-u-0334 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0334 { opacity: 0.74; }
+  .miror-v8-u-0335 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0336 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0336 { opacity: 0.76; }
+  .miror-v8-delay-0336 { transition-delay: 336ms; }
+  .miror-v8-u-0337 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0338 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0338 { opacity: 0.78; }
+  .miror-v8-u-0339 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0339 { transition-delay: 339ms; }
+  .miror-v8-u-0340 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0340 { opacity: 0.80; }
+  .miror-v8-u-0341 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0342 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0342 { opacity: 0.82; }
+  .miror-v8-delay-0342 { transition-delay: 342ms; }
+  .miror-v8-u-0343 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0344 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0344 { opacity: 0.84; }
+  .miror-v8-u-0345 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0345 { transition-delay: 345ms; }
+  .miror-v8-u-0346 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0346 { opacity: 0.86; }
+  .miror-v8-u-0347 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0348 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0348 { opacity: 0.88; }
+  .miror-v8-delay-0348 { transition-delay: 348ms; }
+  .miror-v8-u-0349 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0350 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0350 { opacity: 0.20; }
+  .miror-v8-u-0351 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0351 { transition-delay: 351ms; }
+  .miror-v8-u-0352 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0352 { opacity: 0.22; }
+  .miror-v8-u-0353 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0354 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0354 { opacity: 0.24; }
+  .miror-v8-delay-0354 { transition-delay: 354ms; }
+  .miror-v8-u-0355 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0356 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0356 { opacity: 0.26; }
+  .miror-v8-u-0357 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0357 { transition-delay: 357ms; }
+  .miror-v8-u-0358 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0358 { opacity: 0.28; }
+  .miror-v8-u-0359 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0360 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0360 { opacity: 0.30; }
+  .miror-v8-delay-0360 { transition-delay: 360ms; }
+  .miror-v8-u-0361 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0362 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0362 { opacity: 0.32; }
+  .miror-v8-u-0363 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0363 { transition-delay: 363ms; }
+  .miror-v8-u-0364 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0364 { opacity: 0.34; }
+  .miror-v8-u-0365 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0366 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0366 { opacity: 0.36; }
+  .miror-v8-delay-0366 { transition-delay: 366ms; }
+  .miror-v8-u-0367 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0368 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0368 { opacity: 0.38; }
+  .miror-v8-u-0369 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0369 { transition-delay: 369ms; }
+  .miror-v8-u-0370 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0370 { opacity: 0.40; }
+  .miror-v8-u-0371 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0372 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0372 { opacity: 0.42; }
+  .miror-v8-delay-0372 { transition-delay: 372ms; }
+  .miror-v8-u-0373 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0374 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0374 { opacity: 0.44; }
+  .miror-v8-u-0375 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0375 { transition-delay: 375ms; }
+  .miror-v8-u-0376 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0376 { opacity: 0.46; }
+  .miror-v8-u-0377 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0378 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0378 { opacity: 0.48; }
+  .miror-v8-delay-0378 { transition-delay: 378ms; }
+  .miror-v8-u-0379 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0380 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0380 { opacity: 0.50; }
+  .miror-v8-u-0381 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0381 { transition-delay: 381ms; }
+  .miror-v8-u-0382 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0382 { opacity: 0.52; }
+  .miror-v8-u-0383 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0384 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0384 { opacity: 0.54; }
+  .miror-v8-delay-0384 { transition-delay: 384ms; }
+  .miror-v8-u-0385 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0386 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0386 { opacity: 0.56; }
+  .miror-v8-u-0387 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0387 { transition-delay: 387ms; }
+  .miror-v8-u-0388 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0388 { opacity: 0.58; }
+  .miror-v8-u-0389 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0390 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0390 { opacity: 0.60; }
+  .miror-v8-delay-0390 { transition-delay: 390ms; }
+  .miror-v8-u-0391 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0392 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0392 { opacity: 0.62; }
+  .miror-v8-u-0393 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0393 { transition-delay: 393ms; }
+  .miror-v8-u-0394 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0394 { opacity: 0.64; }
+  .miror-v8-u-0395 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0396 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0396 { opacity: 0.66; }
+  .miror-v8-delay-0396 { transition-delay: 396ms; }
+  .miror-v8-u-0397 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0398 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0398 { opacity: 0.68; }
+  .miror-v8-u-0399 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0399 { transition-delay: 399ms; }
+  .miror-v8-u-0400 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0400 { opacity: 0.70; }
+  .miror-v8-u-0401 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0402 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0402 { opacity: 0.72; }
+  .miror-v8-delay-0402 { transition-delay: 402ms; }
+  .miror-v8-u-0403 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0404 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0404 { opacity: 0.74; }
+  .miror-v8-u-0405 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0405 { transition-delay: 405ms; }
+  .miror-v8-u-0406 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0406 { opacity: 0.76; }
+  .miror-v8-u-0407 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0408 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0408 { opacity: 0.78; }
+  .miror-v8-delay-0408 { transition-delay: 408ms; }
+  .miror-v8-u-0409 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0410 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0410 { opacity: 0.80; }
+  .miror-v8-u-0411 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0411 { transition-delay: 411ms; }
+  .miror-v8-u-0412 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0412 { opacity: 0.82; }
+  .miror-v8-u-0413 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0414 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0414 { opacity: 0.84; }
+  .miror-v8-delay-0414 { transition-delay: 414ms; }
+  .miror-v8-u-0415 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0416 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0416 { opacity: 0.86; }
+  .miror-v8-u-0417 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0417 { transition-delay: 417ms; }
+  .miror-v8-u-0418 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0418 { opacity: 0.88; }
+  .miror-v8-u-0419 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0420 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0420 { opacity: 0.20; }
+  .miror-v8-delay-0420 { transition-delay: 0ms; }
+  .miror-v8-u-0421 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0422 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0422 { opacity: 0.22; }
+  .miror-v8-u-0423 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0423 { transition-delay: 3ms; }
+  .miror-v8-u-0424 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0424 { opacity: 0.24; }
+  .miror-v8-u-0425 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0426 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0426 { opacity: 0.26; }
+  .miror-v8-delay-0426 { transition-delay: 6ms; }
+  .miror-v8-u-0427 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0428 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0428 { opacity: 0.28; }
+  .miror-v8-u-0429 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0429 { transition-delay: 9ms; }
+  .miror-v8-u-0430 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0430 { opacity: 0.30; }
+  .miror-v8-u-0431 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0432 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0432 { opacity: 0.32; }
+  .miror-v8-delay-0432 { transition-delay: 12ms; }
+  .miror-v8-u-0433 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0434 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0434 { opacity: 0.34; }
+  .miror-v8-u-0435 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0435 { transition-delay: 15ms; }
+  .miror-v8-u-0436 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0436 { opacity: 0.36; }
+  .miror-v8-u-0437 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0438 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0438 { opacity: 0.38; }
+  .miror-v8-delay-0438 { transition-delay: 18ms; }
+  .miror-v8-u-0439 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0440 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0440 { opacity: 0.40; }
+  .miror-v8-u-0441 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0441 { transition-delay: 21ms; }
+  .miror-v8-u-0442 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0442 { opacity: 0.42; }
+  .miror-v8-u-0443 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0444 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0444 { opacity: 0.44; }
+  .miror-v8-delay-0444 { transition-delay: 24ms; }
+  .miror-v8-u-0445 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0446 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0446 { opacity: 0.46; }
+  .miror-v8-u-0447 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0447 { transition-delay: 27ms; }
+  .miror-v8-u-0448 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0448 { opacity: 0.48; }
+  .miror-v8-u-0449 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0450 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0450 { opacity: 0.50; }
+  .miror-v8-delay-0450 { transition-delay: 30ms; }
+  .miror-v8-u-0451 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0452 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0452 { opacity: 0.52; }
+  .miror-v8-u-0453 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0453 { transition-delay: 33ms; }
+  .miror-v8-u-0454 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0454 { opacity: 0.54; }
+  .miror-v8-u-0455 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0456 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0456 { opacity: 0.56; }
+  .miror-v8-delay-0456 { transition-delay: 36ms; }
+  .miror-v8-u-0457 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0458 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0458 { opacity: 0.58; }
+  .miror-v8-u-0459 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0459 { transition-delay: 39ms; }
+  .miror-v8-u-0460 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0460 { opacity: 0.60; }
+  .miror-v8-u-0461 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0462 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0462 { opacity: 0.62; }
+  .miror-v8-delay-0462 { transition-delay: 42ms; }
+  .miror-v8-u-0463 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0464 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0464 { opacity: 0.64; }
+  .miror-v8-u-0465 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0465 { transition-delay: 45ms; }
+  .miror-v8-u-0466 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0466 { opacity: 0.66; }
+  .miror-v8-u-0467 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0468 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0468 { opacity: 0.68; }
+  .miror-v8-delay-0468 { transition-delay: 48ms; }
+  .miror-v8-u-0469 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0470 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0470 { opacity: 0.70; }
+  .miror-v8-u-0471 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0471 { transition-delay: 51ms; }
+  .miror-v8-u-0472 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0472 { opacity: 0.72; }
+  .miror-v8-u-0473 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0474 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0474 { opacity: 0.74; }
+  .miror-v8-delay-0474 { transition-delay: 54ms; }
+  .miror-v8-u-0475 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0476 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0476 { opacity: 0.76; }
+  .miror-v8-u-0477 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0477 { transition-delay: 57ms; }
+  .miror-v8-u-0478 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0478 { opacity: 0.78; }
+  .miror-v8-u-0479 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0480 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0480 { opacity: 0.80; }
+  .miror-v8-delay-0480 { transition-delay: 60ms; }
+  .miror-v8-u-0481 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0482 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0482 { opacity: 0.82; }
+  .miror-v8-u-0483 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0483 { transition-delay: 63ms; }
+  .miror-v8-u-0484 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0484 { opacity: 0.84; }
+  .miror-v8-u-0485 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0486 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0486 { opacity: 0.86; }
+  .miror-v8-delay-0486 { transition-delay: 66ms; }
+  .miror-v8-u-0487 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0488 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0488 { opacity: 0.88; }
+  .miror-v8-u-0489 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0489 { transition-delay: 69ms; }
+  .miror-v8-u-0490 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0490 { opacity: 0.20; }
+  .miror-v8-u-0491 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0492 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0492 { opacity: 0.22; }
+  .miror-v8-delay-0492 { transition-delay: 72ms; }
+  .miror-v8-u-0493 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0494 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0494 { opacity: 0.24; }
+  .miror-v8-u-0495 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0495 { transition-delay: 75ms; }
+  .miror-v8-u-0496 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0496 { opacity: 0.26; }
+  .miror-v8-u-0497 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0498 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0498 { opacity: 0.28; }
+  .miror-v8-delay-0498 { transition-delay: 78ms; }
+  .miror-v8-u-0499 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0500 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0500 { opacity: 0.30; }
+  .miror-v8-u-0501 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0501 { transition-delay: 81ms; }
+  .miror-v8-u-0502 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0502 { opacity: 0.32; }
+  .miror-v8-u-0503 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0504 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0504 { opacity: 0.34; }
+  .miror-v8-delay-0504 { transition-delay: 84ms; }
+  .miror-v8-u-0505 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0506 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0506 { opacity: 0.36; }
+  .miror-v8-u-0507 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0507 { transition-delay: 87ms; }
+  .miror-v8-u-0508 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0508 { opacity: 0.38; }
+  .miror-v8-u-0509 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0510 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0510 { opacity: 0.40; }
+  .miror-v8-delay-0510 { transition-delay: 90ms; }
+  .miror-v8-u-0511 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0512 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0512 { opacity: 0.42; }
+  .miror-v8-u-0513 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0513 { transition-delay: 93ms; }
+  .miror-v8-u-0514 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0514 { opacity: 0.44; }
+  .miror-v8-u-0515 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0516 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0516 { opacity: 0.46; }
+  .miror-v8-delay-0516 { transition-delay: 96ms; }
+  .miror-v8-u-0517 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0518 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0518 { opacity: 0.48; }
+  .miror-v8-u-0519 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0519 { transition-delay: 99ms; }
+  .miror-v8-u-0520 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0520 { opacity: 0.50; }
+  .miror-v8-u-0521 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0522 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0522 { opacity: 0.52; }
+  .miror-v8-delay-0522 { transition-delay: 102ms; }
+  .miror-v8-u-0523 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0524 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0524 { opacity: 0.54; }
+  .miror-v8-u-0525 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0525 { transition-delay: 105ms; }
+  .miror-v8-u-0526 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0526 { opacity: 0.56; }
+  .miror-v8-u-0527 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0528 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0528 { opacity: 0.58; }
+  .miror-v8-delay-0528 { transition-delay: 108ms; }
+  .miror-v8-u-0529 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0530 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0530 { opacity: 0.60; }
+  .miror-v8-u-0531 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0531 { transition-delay: 111ms; }
+  .miror-v8-u-0532 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0532 { opacity: 0.62; }
+  .miror-v8-u-0533 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0534 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0534 { opacity: 0.64; }
+  .miror-v8-delay-0534 { transition-delay: 114ms; }
+  .miror-v8-u-0535 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0536 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0536 { opacity: 0.66; }
+  .miror-v8-u-0537 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0537 { transition-delay: 117ms; }
+  .miror-v8-u-0538 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0538 { opacity: 0.68; }
+  .miror-v8-u-0539 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0540 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0540 { opacity: 0.70; }
+  .miror-v8-delay-0540 { transition-delay: 120ms; }
+  .miror-v8-u-0541 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0542 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0542 { opacity: 0.72; }
+  .miror-v8-u-0543 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0543 { transition-delay: 123ms; }
+  .miror-v8-u-0544 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0544 { opacity: 0.74; }
+  .miror-v8-u-0545 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0546 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0546 { opacity: 0.76; }
+  .miror-v8-delay-0546 { transition-delay: 126ms; }
+  .miror-v8-u-0547 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0548 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0548 { opacity: 0.78; }
+  .miror-v8-u-0549 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0549 { transition-delay: 129ms; }
+  .miror-v8-u-0550 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0550 { opacity: 0.80; }
+  .miror-v8-u-0551 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0552 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0552 { opacity: 0.82; }
+  .miror-v8-delay-0552 { transition-delay: 132ms; }
+  .miror-v8-u-0553 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0554 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0554 { opacity: 0.84; }
+  .miror-v8-u-0555 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0555 { transition-delay: 135ms; }
+  .miror-v8-u-0556 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0556 { opacity: 0.86; }
+  .miror-v8-u-0557 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0558 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0558 { opacity: 0.88; }
+  .miror-v8-delay-0558 { transition-delay: 138ms; }
+  .miror-v8-u-0559 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0560 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0560 { opacity: 0.20; }
+  .miror-v8-u-0561 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0561 { transition-delay: 141ms; }
+  .miror-v8-u-0562 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0562 { opacity: 0.22; }
+  .miror-v8-u-0563 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0564 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0564 { opacity: 0.24; }
+  .miror-v8-delay-0564 { transition-delay: 144ms; }
+  .miror-v8-u-0565 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0566 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0566 { opacity: 0.26; }
+  .miror-v8-u-0567 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0567 { transition-delay: 147ms; }
+  .miror-v8-u-0568 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0568 { opacity: 0.28; }
+  .miror-v8-u-0569 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0570 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0570 { opacity: 0.30; }
+  .miror-v8-delay-0570 { transition-delay: 150ms; }
+  .miror-v8-u-0571 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0572 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0572 { opacity: 0.32; }
+  .miror-v8-u-0573 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0573 { transition-delay: 153ms; }
+  .miror-v8-u-0574 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0574 { opacity: 0.34; }
+  .miror-v8-u-0575 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0576 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0576 { opacity: 0.36; }
+  .miror-v8-delay-0576 { transition-delay: 156ms; }
+  .miror-v8-u-0577 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0578 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0578 { opacity: 0.38; }
+  .miror-v8-u-0579 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0579 { transition-delay: 159ms; }
+  .miror-v8-u-0580 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0580 { opacity: 0.40; }
+  .miror-v8-u-0581 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0582 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0582 { opacity: 0.42; }
+  .miror-v8-delay-0582 { transition-delay: 162ms; }
+  .miror-v8-u-0583 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0584 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0584 { opacity: 0.44; }
+  .miror-v8-u-0585 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0585 { transition-delay: 165ms; }
+  .miror-v8-u-0586 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0586 { opacity: 0.46; }
+  .miror-v8-u-0587 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0588 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0588 { opacity: 0.48; }
+  .miror-v8-delay-0588 { transition-delay: 168ms; }
+  .miror-v8-u-0589 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0590 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0590 { opacity: 0.50; }
+  .miror-v8-u-0591 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0591 { transition-delay: 171ms; }
+  .miror-v8-u-0592 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0592 { opacity: 0.52; }
+  .miror-v8-u-0593 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0594 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0594 { opacity: 0.54; }
+  .miror-v8-delay-0594 { transition-delay: 174ms; }
+  .miror-v8-u-0595 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0596 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0596 { opacity: 0.56; }
+  .miror-v8-u-0597 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0597 { transition-delay: 177ms; }
+  .miror-v8-u-0598 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0598 { opacity: 0.58; }
+  .miror-v8-u-0599 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0600 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0600 { opacity: 0.60; }
+  .miror-v8-delay-0600 { transition-delay: 180ms; }
+  .miror-v8-u-0601 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0602 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0602 { opacity: 0.62; }
+  .miror-v8-u-0603 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0603 { transition-delay: 183ms; }
+  .miror-v8-u-0604 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0604 { opacity: 0.64; }
+  .miror-v8-u-0605 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0606 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0606 { opacity: 0.66; }
+  .miror-v8-delay-0606 { transition-delay: 186ms; }
+  .miror-v8-u-0607 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0608 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0608 { opacity: 0.68; }
+  .miror-v8-u-0609 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0609 { transition-delay: 189ms; }
+  .miror-v8-u-0610 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0610 { opacity: 0.70; }
+  .miror-v8-u-0611 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0612 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0612 { opacity: 0.72; }
+  .miror-v8-delay-0612 { transition-delay: 192ms; }
+  .miror-v8-u-0613 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0614 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0614 { opacity: 0.74; }
+  .miror-v8-u-0615 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0615 { transition-delay: 195ms; }
+  .miror-v8-u-0616 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0616 { opacity: 0.76; }
+  .miror-v8-u-0617 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0618 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0618 { opacity: 0.78; }
+  .miror-v8-delay-0618 { transition-delay: 198ms; }
+  .miror-v8-u-0619 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0620 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0620 { opacity: 0.80; }
+  .miror-v8-u-0621 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0621 { transition-delay: 201ms; }
+  .miror-v8-u-0622 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0622 { opacity: 0.82; }
+  .miror-v8-u-0623 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0624 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0624 { opacity: 0.84; }
+  .miror-v8-delay-0624 { transition-delay: 204ms; }
+  .miror-v8-u-0625 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0626 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0626 { opacity: 0.86; }
+  .miror-v8-u-0627 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0627 { transition-delay: 207ms; }
+  .miror-v8-u-0628 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0628 { opacity: 0.88; }
+  .miror-v8-u-0629 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0630 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0630 { opacity: 0.20; }
+  .miror-v8-delay-0630 { transition-delay: 210ms; }
+  .miror-v8-u-0631 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0632 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0632 { opacity: 0.22; }
+  .miror-v8-u-0633 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0633 { transition-delay: 213ms; }
+  .miror-v8-u-0634 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0634 { opacity: 0.24; }
+  .miror-v8-u-0635 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0636 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0636 { opacity: 0.26; }
+  .miror-v8-delay-0636 { transition-delay: 216ms; }
+  .miror-v8-u-0637 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0638 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0638 { opacity: 0.28; }
+  .miror-v8-u-0639 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0639 { transition-delay: 219ms; }
+  .miror-v8-u-0640 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0640 { opacity: 0.30; }
+  .miror-v8-u-0641 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0642 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0642 { opacity: 0.32; }
+  .miror-v8-delay-0642 { transition-delay: 222ms; }
+  .miror-v8-u-0643 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0644 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0644 { opacity: 0.34; }
+  .miror-v8-u-0645 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0645 { transition-delay: 225ms; }
+  .miror-v8-u-0646 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0646 { opacity: 0.36; }
+  .miror-v8-u-0647 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0648 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0648 { opacity: 0.38; }
+  .miror-v8-delay-0648 { transition-delay: 228ms; }
+  .miror-v8-u-0649 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0650 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0650 { opacity: 0.40; }
+  .miror-v8-u-0651 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0651 { transition-delay: 231ms; }
+  .miror-v8-u-0652 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0652 { opacity: 0.42; }
+  .miror-v8-u-0653 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0654 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0654 { opacity: 0.44; }
+  .miror-v8-delay-0654 { transition-delay: 234ms; }
+  .miror-v8-u-0655 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0656 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0656 { opacity: 0.46; }
+  .miror-v8-u-0657 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0657 { transition-delay: 237ms; }
+  .miror-v8-u-0658 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0658 { opacity: 0.48; }
+  .miror-v8-u-0659 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0660 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0660 { opacity: 0.50; }
+  .miror-v8-delay-0660 { transition-delay: 240ms; }
+  .miror-v8-u-0661 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0662 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0662 { opacity: 0.52; }
+  .miror-v8-u-0663 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0663 { transition-delay: 243ms; }
+  .miror-v8-u-0664 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0664 { opacity: 0.54; }
+  .miror-v8-u-0665 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0666 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0666 { opacity: 0.56; }
+  .miror-v8-delay-0666 { transition-delay: 246ms; }
+  .miror-v8-u-0667 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0668 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0668 { opacity: 0.58; }
+  .miror-v8-u-0669 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0669 { transition-delay: 249ms; }
+  .miror-v8-u-0670 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0670 { opacity: 0.60; }
+  .miror-v8-u-0671 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0672 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0672 { opacity: 0.62; }
+  .miror-v8-delay-0672 { transition-delay: 252ms; }
+  .miror-v8-u-0673 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0674 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0674 { opacity: 0.64; }
+  .miror-v8-u-0675 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0675 { transition-delay: 255ms; }
+  .miror-v8-u-0676 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0676 { opacity: 0.66; }
+  .miror-v8-u-0677 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0678 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0678 { opacity: 0.68; }
+  .miror-v8-delay-0678 { transition-delay: 258ms; }
+  .miror-v8-u-0679 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0680 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0680 { opacity: 0.70; }
+  .miror-v8-u-0681 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0681 { transition-delay: 261ms; }
+  .miror-v8-u-0682 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0682 { opacity: 0.72; }
+  .miror-v8-u-0683 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0684 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0684 { opacity: 0.74; }
+  .miror-v8-delay-0684 { transition-delay: 264ms; }
+  .miror-v8-u-0685 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0686 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0686 { opacity: 0.76; }
+  .miror-v8-u-0687 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0687 { transition-delay: 267ms; }
+  .miror-v8-u-0688 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0688 { opacity: 0.78; }
+  .miror-v8-u-0689 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0690 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0690 { opacity: 0.80; }
+  .miror-v8-delay-0690 { transition-delay: 270ms; }
+  .miror-v8-u-0691 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0692 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0692 { opacity: 0.82; }
+  .miror-v8-u-0693 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0693 { transition-delay: 273ms; }
+  .miror-v8-u-0694 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0694 { opacity: 0.84; }
+  .miror-v8-u-0695 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0696 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0696 { opacity: 0.86; }
+  .miror-v8-delay-0696 { transition-delay: 276ms; }
+  .miror-v8-u-0697 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0698 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0698 { opacity: 0.88; }
+  .miror-v8-u-0699 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0699 { transition-delay: 279ms; }
+  .miror-v8-u-0700 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0700 { opacity: 0.20; }
+  .miror-v8-u-0701 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0702 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0702 { opacity: 0.22; }
+  .miror-v8-delay-0702 { transition-delay: 282ms; }
+  .miror-v8-u-0703 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0704 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0704 { opacity: 0.24; }
+  .miror-v8-u-0705 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0705 { transition-delay: 285ms; }
+  .miror-v8-u-0706 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0706 { opacity: 0.26; }
+  .miror-v8-u-0707 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0708 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0708 { opacity: 0.28; }
+  .miror-v8-delay-0708 { transition-delay: 288ms; }
+  .miror-v8-u-0709 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0710 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0710 { opacity: 0.30; }
+  .miror-v8-u-0711 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0711 { transition-delay: 291ms; }
+  .miror-v8-u-0712 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0712 { opacity: 0.32; }
+  .miror-v8-u-0713 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0714 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0714 { opacity: 0.34; }
+  .miror-v8-delay-0714 { transition-delay: 294ms; }
+  .miror-v8-u-0715 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0716 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0716 { opacity: 0.36; }
+  .miror-v8-u-0717 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0717 { transition-delay: 297ms; }
+  .miror-v8-u-0718 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0718 { opacity: 0.38; }
+  .miror-v8-u-0719 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0720 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0720 { opacity: 0.40; }
+  .miror-v8-delay-0720 { transition-delay: 300ms; }
+  .miror-v8-u-0721 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0722 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0722 { opacity: 0.42; }
+  .miror-v8-u-0723 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0723 { transition-delay: 303ms; }
+  .miror-v8-u-0724 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0724 { opacity: 0.44; }
+  .miror-v8-u-0725 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0726 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0726 { opacity: 0.46; }
+  .miror-v8-delay-0726 { transition-delay: 306ms; }
+  .miror-v8-u-0727 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0728 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0728 { opacity: 0.48; }
+  .miror-v8-u-0729 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0729 { transition-delay: 309ms; }
+  .miror-v8-u-0730 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0730 { opacity: 0.50; }
+  .miror-v8-u-0731 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0732 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0732 { opacity: 0.52; }
+  .miror-v8-delay-0732 { transition-delay: 312ms; }
+  .miror-v8-u-0733 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0734 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0734 { opacity: 0.54; }
+  .miror-v8-u-0735 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0735 { transition-delay: 315ms; }
+  .miror-v8-u-0736 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0736 { opacity: 0.56; }
+  .miror-v8-u-0737 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0738 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0738 { opacity: 0.58; }
+  .miror-v8-delay-0738 { transition-delay: 318ms; }
+  .miror-v8-u-0739 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0740 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0740 { opacity: 0.60; }
+  .miror-v8-u-0741 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0741 { transition-delay: 321ms; }
+  .miror-v8-u-0742 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0742 { opacity: 0.62; }
+  .miror-v8-u-0743 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0744 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0744 { opacity: 0.64; }
+  .miror-v8-delay-0744 { transition-delay: 324ms; }
+  .miror-v8-u-0745 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0746 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0746 { opacity: 0.66; }
+  .miror-v8-u-0747 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0747 { transition-delay: 327ms; }
+  .miror-v8-u-0748 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0748 { opacity: 0.68; }
+  .miror-v8-u-0749 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0750 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0750 { opacity: 0.70; }
+  .miror-v8-delay-0750 { transition-delay: 330ms; }
+  .miror-v8-u-0751 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0752 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0752 { opacity: 0.72; }
+  .miror-v8-u-0753 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0753 { transition-delay: 333ms; }
+  .miror-v8-u-0754 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0754 { opacity: 0.74; }
+  .miror-v8-u-0755 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0756 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0756 { opacity: 0.76; }
+  .miror-v8-delay-0756 { transition-delay: 336ms; }
+  .miror-v8-u-0757 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0758 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0758 { opacity: 0.78; }
+  .miror-v8-u-0759 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0759 { transition-delay: 339ms; }
+  .miror-v8-u-0760 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0760 { opacity: 0.80; }
+  .miror-v8-u-0761 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0762 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0762 { opacity: 0.82; }
+  .miror-v8-delay-0762 { transition-delay: 342ms; }
+  .miror-v8-u-0763 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0764 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0764 { opacity: 0.84; }
+  .miror-v8-u-0765 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0765 { transition-delay: 345ms; }
+  .miror-v8-u-0766 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0766 { opacity: 0.86; }
+  .miror-v8-u-0767 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0768 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0768 { opacity: 0.88; }
+  .miror-v8-delay-0768 { transition-delay: 348ms; }
+  .miror-v8-u-0769 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0770 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0770 { opacity: 0.20; }
+  .miror-v8-u-0771 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0771 { transition-delay: 351ms; }
+  .miror-v8-u-0772 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0772 { opacity: 0.22; }
+  .miror-v8-u-0773 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0774 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0774 { opacity: 0.24; }
+  .miror-v8-delay-0774 { transition-delay: 354ms; }
+  .miror-v8-u-0775 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0776 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0776 { opacity: 0.26; }
+  .miror-v8-u-0777 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0777 { transition-delay: 357ms; }
+  .miror-v8-u-0778 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0778 { opacity: 0.28; }
+  .miror-v8-u-0779 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0780 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0780 { opacity: 0.30; }
+  .miror-v8-delay-0780 { transition-delay: 360ms; }
+  .miror-v8-u-0781 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0782 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0782 { opacity: 0.32; }
+  .miror-v8-u-0783 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0783 { transition-delay: 363ms; }
+  .miror-v8-u-0784 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0784 { opacity: 0.34; }
+  .miror-v8-u-0785 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0786 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0786 { opacity: 0.36; }
+  .miror-v8-delay-0786 { transition-delay: 366ms; }
+  .miror-v8-u-0787 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0788 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0788 { opacity: 0.38; }
+  .miror-v8-u-0789 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0789 { transition-delay: 369ms; }
+  .miror-v8-u-0790 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0790 { opacity: 0.40; }
+  .miror-v8-u-0791 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0792 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0792 { opacity: 0.42; }
+  .miror-v8-delay-0792 { transition-delay: 372ms; }
+  .miror-v8-u-0793 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0794 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0794 { opacity: 0.44; }
+  .miror-v8-u-0795 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0795 { transition-delay: 375ms; }
+  .miror-v8-u-0796 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0796 { opacity: 0.46; }
+  .miror-v8-u-0797 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0798 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0798 { opacity: 0.48; }
+  .miror-v8-delay-0798 { transition-delay: 378ms; }
+  .miror-v8-u-0799 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0800 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0800 { opacity: 0.50; }
+  .miror-v8-u-0801 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0801 { transition-delay: 381ms; }
+  .miror-v8-u-0802 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0802 { opacity: 0.52; }
+  .miror-v8-u-0803 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0804 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0804 { opacity: 0.54; }
+  .miror-v8-delay-0804 { transition-delay: 384ms; }
+  .miror-v8-u-0805 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0806 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0806 { opacity: 0.56; }
+  .miror-v8-u-0807 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0807 { transition-delay: 387ms; }
+  .miror-v8-u-0808 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0808 { opacity: 0.58; }
+  .miror-v8-u-0809 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0810 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0810 { opacity: 0.60; }
+  .miror-v8-delay-0810 { transition-delay: 390ms; }
+  .miror-v8-u-0811 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0812 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0812 { opacity: 0.62; }
+  .miror-v8-u-0813 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0813 { transition-delay: 393ms; }
+  .miror-v8-u-0814 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0814 { opacity: 0.64; }
+  .miror-v8-u-0815 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0816 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0816 { opacity: 0.66; }
+  .miror-v8-delay-0816 { transition-delay: 396ms; }
+  .miror-v8-u-0817 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0818 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0818 { opacity: 0.68; }
+  .miror-v8-u-0819 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0819 { transition-delay: 399ms; }
+  .miror-v8-u-0820 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0820 { opacity: 0.70; }
+  .miror-v8-u-0821 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0822 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0822 { opacity: 0.72; }
+  .miror-v8-delay-0822 { transition-delay: 402ms; }
+  .miror-v8-u-0823 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0824 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0824 { opacity: 0.74; }
+  .miror-v8-u-0825 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0825 { transition-delay: 405ms; }
+  .miror-v8-u-0826 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0826 { opacity: 0.76; }
+  .miror-v8-u-0827 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0828 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0828 { opacity: 0.78; }
+  .miror-v8-delay-0828 { transition-delay: 408ms; }
+  .miror-v8-u-0829 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0830 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0830 { opacity: 0.80; }
+  .miror-v8-u-0831 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0831 { transition-delay: 411ms; }
+  .miror-v8-u-0832 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0832 { opacity: 0.82; }
+  .miror-v8-u-0833 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0834 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0834 { opacity: 0.84; }
+  .miror-v8-delay-0834 { transition-delay: 414ms; }
+  .miror-v8-u-0835 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0836 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0836 { opacity: 0.86; }
+  .miror-v8-u-0837 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0837 { transition-delay: 417ms; }
+  .miror-v8-u-0838 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0838 { opacity: 0.88; }
+  .miror-v8-u-0839 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0840 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0840 { opacity: 0.20; }
+  .miror-v8-delay-0840 { transition-delay: 0ms; }
+  .miror-v8-u-0841 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0842 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0842 { opacity: 0.22; }
+  .miror-v8-u-0843 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0843 { transition-delay: 3ms; }
+  .miror-v8-u-0844 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0844 { opacity: 0.24; }
+  .miror-v8-u-0845 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0846 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0846 { opacity: 0.26; }
+  .miror-v8-delay-0846 { transition-delay: 6ms; }
+  .miror-v8-u-0847 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0848 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0848 { opacity: 0.28; }
+  .miror-v8-u-0849 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0849 { transition-delay: 9ms; }
+  .miror-v8-u-0850 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0850 { opacity: 0.30; }
+  .miror-v8-u-0851 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0852 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0852 { opacity: 0.32; }
+  .miror-v8-delay-0852 { transition-delay: 12ms; }
+  .miror-v8-u-0853 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0854 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0854 { opacity: 0.34; }
+  .miror-v8-u-0855 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0855 { transition-delay: 15ms; }
+  .miror-v8-u-0856 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0856 { opacity: 0.36; }
+  .miror-v8-u-0857 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0858 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0858 { opacity: 0.38; }
+  .miror-v8-delay-0858 { transition-delay: 18ms; }
+  .miror-v8-u-0859 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0860 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0860 { opacity: 0.40; }
+  .miror-v8-u-0861 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0861 { transition-delay: 21ms; }
+  .miror-v8-u-0862 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0862 { opacity: 0.42; }
+  .miror-v8-u-0863 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0864 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0864 { opacity: 0.44; }
+  .miror-v8-delay-0864 { transition-delay: 24ms; }
+  .miror-v8-u-0865 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0866 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0866 { opacity: 0.46; }
+  .miror-v8-u-0867 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0867 { transition-delay: 27ms; }
+  .miror-v8-u-0868 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0868 { opacity: 0.48; }
+  .miror-v8-u-0869 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0870 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0870 { opacity: 0.50; }
+  .miror-v8-delay-0870 { transition-delay: 30ms; }
+  .miror-v8-u-0871 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0872 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0872 { opacity: 0.52; }
+  .miror-v8-u-0873 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0873 { transition-delay: 33ms; }
+  .miror-v8-u-0874 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0874 { opacity: 0.54; }
+  .miror-v8-u-0875 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0876 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0876 { opacity: 0.56; }
+  .miror-v8-delay-0876 { transition-delay: 36ms; }
+  .miror-v8-u-0877 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0878 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0878 { opacity: 0.58; }
+  .miror-v8-u-0879 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0879 { transition-delay: 39ms; }
+  .miror-v8-u-0880 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0880 { opacity: 0.60; }
+  .miror-v8-u-0881 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0882 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0882 { opacity: 0.62; }
+  .miror-v8-delay-0882 { transition-delay: 42ms; }
+  .miror-v8-u-0883 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0884 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0884 { opacity: 0.64; }
+  .miror-v8-u-0885 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0885 { transition-delay: 45ms; }
+  .miror-v8-u-0886 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0886 { opacity: 0.66; }
+  .miror-v8-u-0887 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0888 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0888 { opacity: 0.68; }
+  .miror-v8-delay-0888 { transition-delay: 48ms; }
+  .miror-v8-u-0889 { --v8-u: 2px; margin-block: var(--v8-u); }
+  .miror-v8-u-0890 { --v8-u: 3px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0890 { opacity: 0.70; }
+  .miror-v8-u-0891 { --v8-u: 4px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0891 { transition-delay: 51ms; }
+  .miror-v8-u-0892 { --v8-u: 5px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0892 { opacity: 0.72; }
+  .miror-v8-u-0893 { --v8-u: 6px; margin-block: var(--v8-u); }
+  .miror-v8-u-0894 { --v8-u: 7px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0894 { opacity: 0.74; }
+  .miror-v8-delay-0894 { transition-delay: 54ms; }
+  .miror-v8-u-0895 { --v8-u: 8px; margin-block: var(--v8-u); }
+  .miror-v8-u-0896 { --v8-u: 9px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0896 { opacity: 0.76; }
+  .miror-v8-u-0897 { --v8-u: 10px; margin-block: var(--v8-u); }
+  .miror-v8-delay-0897 { transition-delay: 57ms; }
+  .miror-v8-u-0898 { --v8-u: 11px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0898 { opacity: 0.78; }
+  .miror-v8-u-0899 { --v8-u: 12px; margin-block: var(--v8-u); }
+  .miror-v8-u-0900 { --v8-u: 1px; margin-block: var(--v8-u); }
+  .miror-v8-opacity-0900 { opacity: 0.80; }
+  .miror-v8-delay-0900 { transition-delay: 60ms; }
+  @media (max-width: 920px) {
+    .miror-v8-layer-panel,.miror-v8-panel-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .miror-v8-meta-row,.miror-v8-detail-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width: 640px) {
+    .miror-v8-section { padding:68px 18px; }
+    .miror-v8-heading { font-size:clamp(36px,12.5vw,62px); }
+    .miror-v8-layer-panel,.miror-v8-panel-grid,.miror-v8-meta-row,.miror-v8-detail-strip { grid-template-columns:1fr; }
+    .miror-v8-section__footer { flex-direction:column; align-items:flex-start; }
+    .miror-v8-panel { min-height:230px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .miror-v8-section *, .miror-v8-section *::before, .miror-v8-section *::after { transition-duration:.001ms !important; animation-duration:.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; }
+    .miror-v8-panel:hover,.miror-v8-control:hover { transform:none; }
+  }
+}
+
+@layer utilities {
+  .miror-v8-drawing-grid { background-image:linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px, transparent 1px); background-size:24px 24px; }
+  .miror-v8-scanline { position:relative; }
+  .miror-v8-scanline::after { content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(to bottom,transparent 0,transparent 5px,rgba(255,255,255,.025) 6px); mix-blend-mode:screen; }
+  .miror-v8-edge { border-inline:1px solid var(--miror-v8-line); }
+}

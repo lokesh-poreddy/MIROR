@@ -1,0 +1,663 @@
+/*
+  MIROR V10 — production system visual language.
+  Separated from V8/V9 so system controls can evolve independently.
+*/
+:root {
+  --miror-v10-ink: #111315;
+  --miror-v10-paper: #f4f2ec;
+  --miror-v10-muted: #6d6b65;
+  --miror-v10-accent: #b79042;
+  --miror-v10-tech: #17191a;
+  --miror-v10-signal: #7ea3ad;
+  --miror-v10-line: rgba(17, 19, 21, .15);
+  --miror-v10-line-dark: rgba(244, 242, 236, .18);
+  --miror-v10-focus: #b79042;
+}
+
+.miror-v10-route-shell {
+  min-height: 100vh;
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+}
+.miror-v10-route-shell.technical {
+  background: var(--miror-v10-tech);
+  color: var(--miror-v10-paper);
+}
+.miror-v10-route-header {
+  width: min(1440px, 92vw);
+  margin: 0 auto;
+  padding: 130px 0 56px;
+  border-bottom: 1px solid var(--miror-v10-line);
+}
+.miror-v10-route-shell.technical .miror-v10-route-header {
+  border-color: var(--miror-v10-line-dark);
+}
+.miror-v10-route-header h1 {
+  max-width: 1150px;
+  margin: 18px 0;
+  font-size: clamp(54px, 8vw, 124px);
+  line-height: .88;
+  letter-spacing: -.065em;
+  font-weight: 550;
+}
+.miror-v10-route-header p {
+  max-width: 760px;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.48;
+  color: var(--miror-v10-muted);
+}
+.miror-v10-route-shell.technical .miror-v10-route-header p {
+  color: rgba(244,242,236,.6);
+}
+.miror-v10-eyebrow {
+  font: 600 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--miror-v10-muted);
+}
+.miror-v10-nav-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.miror-v10-button,
+.miror-v10-control {
+  min-height: 44px;
+  border: 1px solid var(--miror-v10-line);
+  background: transparent;
+  color: inherit;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.miror-v10-button-primary {
+  background: var(--miror-v10-ink);
+  color: var(--miror-v10-paper);
+  border-color: var(--miror-v10-ink);
+}
+.miror-v10-route-shell.technical .miror-v10-button-primary {
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+  border-color: var(--miror-v10-paper);
+}
+.miror-v10-button:focus-visible,
+.miror-v10-control:focus-visible,
+.miror-v10-search input:focus-visible,
+.miror-v10-record-card:focus-visible,
+.miror-v10-dialog-close:focus-visible,
+.miror-v10-record-grid button:focus-visible {
+  outline: 2px solid var(--miror-v10-focus);
+  outline-offset: 3px;
+}
+.miror-v10-route-content {
+  width: min(1440px, 92vw);
+  margin: 0 auto;
+  padding: 64px 0 110px;
+}
+.miror-v10-feature {
+  position: relative;
+  min-height: 80vh;
+  padding: clamp(72px, 10vw, 150px) 0;
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+  overflow: clip;
+}
+.miror-v10-theme-ink,
+.miror-v10-theme-technical {
+  background: var(--miror-v10-tech);
+  color: var(--miror-v10-paper);
+  --miror-v10-line: var(--miror-v10-line-dark);
+}
+.miror-v10-feature-inner {
+  width: min(1440px, 92vw);
+  margin: 0 auto;
+}
+.miror-v10-feature-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--miror-v10-line);
+  padding-bottom: 18px;
+}
+.miror-v10-feature-head h2 {
+  margin: 10px 0 0;
+  max-width: 1000px;
+  font-size: clamp(42px, 6vw, 96px);
+  line-height: .9;
+  letter-spacing: -.06em;
+}
+.miror-v10-system-meta {
+  font: 600 10px ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--miror-v10-muted);
+  white-space: nowrap;
+}
+.miror-v10-feature-toolbar {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 28px 0 18px;
+}
+.miror-v10-search input {
+  min-width: min(380px, 90vw);
+  height: 44px;
+  border: 1px solid var(--miror-v10-line);
+  background: transparent;
+  color: inherit;
+  padding: 0 14px;
+}
+.miror-v10-feature-layout {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  min-height: 560px;
+  gap: 1px;
+  background: var(--miror-v10-line);
+}
+.miror-v10-visual-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--miror-v10-tech);
+  overflow: hidden;
+}
+.miror-v10-engineering-frame {
+  width: 64%;
+  height: 54%;
+  position: relative;
+  border: 1px solid rgba(126,163,173,.48);
+  transform: perspective(700px) rotateX(11deg) rotateY(-8deg);
+}
+.miror-v10-engineering-frame span {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  font: 600 9px ui-monospace, monospace;
+  letter-spacing: .14em;
+  color: rgba(244,242,236,.55);
+}
+.miror-v10-engineering-frame i {
+  display: block;
+  position: absolute;
+  border: 1px solid rgba(126,163,173,.42);
+}
+.miror-v10-engineering-frame i:nth-child(2) { inset: 10% 12% 12% 10%; transform: skewY(-16deg); }
+.miror-v10-engineering-frame i:nth-child(3) { left: 50%; top: 0; width: 1px; height: 100%; }
+.miror-v10-engineering-frame i:nth-child(4) { left: 0; top: 45%; width: 100%; height: 1px; }
+.miror-v10-engineering-frame i:nth-child(5) { inset: 20% 20% 22% 19%; transform: rotate(18deg); }
+.miror-v10-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 44%;
+  height: 1px;
+  background: rgba(126,163,173,.72);
+  box-shadow: 0 0 22px rgba(126,163,173,.5);
+}
+.miror-v10-content-panel {
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+  padding: clamp(28px, 5vw, 66px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.miror-v10-content-panel h3 {
+  margin: 14px 0 18px;
+  font-size: clamp(34px, 4.5vw, 68px);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.miror-v10-content-panel p {
+  max-width: 650px;
+  color: var(--miror-v10-muted);
+  line-height: 1.56;
+  font-size: 17px;
+}
+.miror-v10-record-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--miror-v10-line);
+  margin-top: 20px;
+}
+.miror-v10-record-card {
+  min-height: 270px;
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .38s ease, background .25s ease;
+}
+.miror-v10-record-card:hover { transform: translateY(-5px); background: #ebe8df; }
+.miror-v10-record-number,
+.miror-v10-record-meta,
+.miror-v10-record-index {
+  font: 600 10px ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--miror-v10-muted);
+}
+.miror-v10-record-card h3 {
+  margin: auto 0 0;
+  font-size: 25px;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.miror-v10-record-card p {
+  color: var(--miror-v10-muted);
+  line-height: 1.48;
+}
+.miror-v10-feature-footer {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--miror-v10-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  font: 600 10px ui-monospace, monospace;
+  text-transform: uppercase;
+  color: var(--miror-v10-muted);
+}
+.miror-v10-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--miror-v10-line);
+}
+.miror-v10-progress span {
+  height: 100%;
+  display: block;
+  transform-origin: left;
+  background: var(--miror-v10-accent);
+}
+.miror-v10-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8,9,10,.76);
+  backdrop-filter: blur(14px);
+}
+.miror-v10-dialog {
+  position: relative;
+  width: min(960px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--miror-v10-paper);
+  color: var(--miror-v10-ink);
+  padding: 34px;
+}
+.miror-v10-dialog h3 {
+  margin: 12px 0 16px;
+  font-size: clamp(34px, 5vw, 70px);
+  line-height: .92;
+  letter-spacing: -.055em;
+}
+.miror-v10-dialog p { color: var(--miror-v10-muted); line-height: 1.55; }
+.miror-v10-dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--miror-v10-line);
+  background: transparent;
+  cursor: pointer;
+  font-size: 22px;
+}
+.miror-v10-definition-list {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  border-top: 1px solid var(--miror-v10-line);
+  margin-top: 24px;
+}
+.miror-v10-definition-list div {
+  padding: 14px;
+  border-right: 1px solid var(--miror-v10-line);
+  border-bottom: 1px solid var(--miror-v10-line);
+}
+.miror-v10-definition-list dt {
+  font: 600 9px ui-monospace, monospace;
+  text-transform: uppercase;
+  color: var(--miror-v10-muted);
+}
+.miror-v10-definition-list dd { margin: 7px 0 0; }
+.miror-v10-dialog-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
+.miror-v10-diagnostic-line {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--miror-v10-line);
+  padding-top:12px;
+  margin-top:28px;
+  font:600 9px ui-monospace, monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--miror-v10-muted);
+}
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+@media (max-width: 1080px) {
+  .miror-v10-feature-layout { grid-template-columns:1fr; }
+  .miror-v10-visual-panel { min-height:400px; }
+  .miror-v10-record-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 680px) {
+  .miror-v10-route-header { padding-top:100px; }
+  .miror-v10-route-header h1 { font-size:clamp(46px,13vw,72px); }
+  .miror-v10-route-content,.miror-v10-feature-inner { width:94vw; }
+  .miror-v10-feature { padding:72px 0; }
+  .miror-v10-feature-head { align-items:flex-start; flex-direction:column; }
+  .miror-v10-system-meta { white-space:normal; }
+  .miror-v10-feature-toolbar { flex-direction:column; align-items:stretch; }
+  .miror-v10-search input { width:100%; min-width:0; }
+  .miror-v10-feature-layout { min-height:auto; }
+  .miror-v10-visual-panel { min-height:290px; }
+  .miror-v10-record-grid { grid-template-columns:1fr; }
+  .miror-v10-record-card { min-height:230px; }
+  .miror-v10-definition-list { grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .miror-v10-record-card { transition:none; }
+  .miror-v10-record-card:hover { transform:none; }
+  .miror-v10-progress span { transition:none; }
+}
+.miror-v10-state-001{--miror-v10-delay:0.02s;--miror-v10-opacity:0.44;--miror-v10-offset:1px;}
+.miror-v10-state-002{--miror-v10-delay:0.04s;--miror-v10-opacity:0.53;--miror-v10-offset:2px;}
+.miror-v10-state-003{--miror-v10-delay:0.06s;--miror-v10-opacity:0.62;--miror-v10-offset:3px;}
+.miror-v10-state-004{--miror-v10-delay:0.08s;--miror-v10-opacity:0.71;--miror-v10-offset:4px;}
+.miror-v10-state-005{--miror-v10-delay:0.10s;--miror-v10-opacity:0.80;--miror-v10-offset:5px;}
+.miror-v10-state-006{--miror-v10-delay:0.12s;--miror-v10-opacity:0.89;--miror-v10-offset:6px;}
+.miror-v10-state-007{--miror-v10-delay:0.14s;--miror-v10-opacity:0.35;--miror-v10-offset:7px;}
+.miror-v10-state-008{--miror-v10-delay:0.16s;--miror-v10-opacity:0.44;--miror-v10-offset:8px;}
+.miror-v10-state-009{--miror-v10-delay:0.18s;--miror-v10-opacity:0.53;--miror-v10-offset:0px;}
+.miror-v10-state-010{--miror-v10-delay:0.20s;--miror-v10-opacity:0.62;--miror-v10-offset:1px;}
+.miror-v10-state-011{--miror-v10-delay:0.22s;--miror-v10-opacity:0.71;--miror-v10-offset:2px;}
+.miror-v10-state-012{--miror-v10-delay:0.24s;--miror-v10-opacity:0.80;--miror-v10-offset:3px;}
+.miror-v10-state-013{--miror-v10-delay:0.00s;--miror-v10-opacity:0.89;--miror-v10-offset:4px;}
+.miror-v10-state-014{--miror-v10-delay:0.02s;--miror-v10-opacity:0.35;--miror-v10-offset:5px;}
+.miror-v10-state-015{--miror-v10-delay:0.04s;--miror-v10-opacity:0.44;--miror-v10-offset:6px;}
+.miror-v10-state-016{--miror-v10-delay:0.06s;--miror-v10-opacity:0.53;--miror-v10-offset:7px;}
+.miror-v10-state-017{--miror-v10-delay:0.08s;--miror-v10-opacity:0.62;--miror-v10-offset:8px;}
+.miror-v10-state-018{--miror-v10-delay:0.10s;--miror-v10-opacity:0.71;--miror-v10-offset:0px;}
+.miror-v10-state-019{--miror-v10-delay:0.12s;--miror-v10-opacity:0.80;--miror-v10-offset:1px;}
+.miror-v10-state-020{--miror-v10-delay:0.14s;--miror-v10-opacity:0.89;--miror-v10-offset:2px;}
+.miror-v10-state-021{--miror-v10-delay:0.16s;--miror-v10-opacity:0.35;--miror-v10-offset:3px;}
+.miror-v10-state-022{--miror-v10-delay:0.18s;--miror-v10-opacity:0.44;--miror-v10-offset:4px;}
+.miror-v10-state-023{--miror-v10-delay:0.20s;--miror-v10-opacity:0.53;--miror-v10-offset:5px;}
+.miror-v10-state-024{--miror-v10-delay:0.22s;--miror-v10-opacity:0.62;--miror-v10-offset:6px;}
+.miror-v10-state-025{--miror-v10-delay:0.24s;--miror-v10-opacity:0.71;--miror-v10-offset:7px;}
+.miror-v10-state-026{--miror-v10-delay:0.00s;--miror-v10-opacity:0.80;--miror-v10-offset:8px;}
+.miror-v10-state-027{--miror-v10-delay:0.02s;--miror-v10-opacity:0.89;--miror-v10-offset:0px;}
+.miror-v10-state-028{--miror-v10-delay:0.04s;--miror-v10-opacity:0.35;--miror-v10-offset:1px;}
+.miror-v10-state-029{--miror-v10-delay:0.06s;--miror-v10-opacity:0.44;--miror-v10-offset:2px;}
+.miror-v10-state-030{--miror-v10-delay:0.08s;--miror-v10-opacity:0.53;--miror-v10-offset:3px;}
+.miror-v10-state-031{--miror-v10-delay:0.10s;--miror-v10-opacity:0.62;--miror-v10-offset:4px;}
+.miror-v10-state-032{--miror-v10-delay:0.12s;--miror-v10-opacity:0.71;--miror-v10-offset:5px;}
+.miror-v10-state-033{--miror-v10-delay:0.14s;--miror-v10-opacity:0.80;--miror-v10-offset:6px;}
+.miror-v10-state-034{--miror-v10-delay:0.16s;--miror-v10-opacity:0.89;--miror-v10-offset:7px;}
+.miror-v10-state-035{--miror-v10-delay:0.18s;--miror-v10-opacity:0.35;--miror-v10-offset:8px;}
+.miror-v10-state-036{--miror-v10-delay:0.20s;--miror-v10-opacity:0.44;--miror-v10-offset:0px;}
+.miror-v10-state-037{--miror-v10-delay:0.22s;--miror-v10-opacity:0.53;--miror-v10-offset:1px;}
+.miror-v10-state-038{--miror-v10-delay:0.24s;--miror-v10-opacity:0.62;--miror-v10-offset:2px;}
+.miror-v10-state-039{--miror-v10-delay:0.00s;--miror-v10-opacity:0.71;--miror-v10-offset:3px;}
+.miror-v10-state-040{--miror-v10-delay:0.02s;--miror-v10-opacity:0.80;--miror-v10-offset:4px;}
+.miror-v10-state-041{--miror-v10-delay:0.04s;--miror-v10-opacity:0.89;--miror-v10-offset:5px;}
+.miror-v10-state-042{--miror-v10-delay:0.06s;--miror-v10-opacity:0.35;--miror-v10-offset:6px;}
+.miror-v10-state-043{--miror-v10-delay:0.08s;--miror-v10-opacity:0.44;--miror-v10-offset:7px;}
+.miror-v10-state-044{--miror-v10-delay:0.10s;--miror-v10-opacity:0.53;--miror-v10-offset:8px;}
+.miror-v10-state-045{--miror-v10-delay:0.12s;--miror-v10-opacity:0.62;--miror-v10-offset:0px;}
+.miror-v10-state-046{--miror-v10-delay:0.14s;--miror-v10-opacity:0.71;--miror-v10-offset:1px;}
+.miror-v10-state-047{--miror-v10-delay:0.16s;--miror-v10-opacity:0.80;--miror-v10-offset:2px;}
+.miror-v10-state-048{--miror-v10-delay:0.18s;--miror-v10-opacity:0.89;--miror-v10-offset:3px;}
+.miror-v10-state-049{--miror-v10-delay:0.20s;--miror-v10-opacity:0.35;--miror-v10-offset:4px;}
+.miror-v10-state-050{--miror-v10-delay:0.22s;--miror-v10-opacity:0.44;--miror-v10-offset:5px;}
+.miror-v10-state-051{--miror-v10-delay:0.24s;--miror-v10-opacity:0.53;--miror-v10-offset:6px;}
+.miror-v10-state-052{--miror-v10-delay:0.00s;--miror-v10-opacity:0.62;--miror-v10-offset:7px;}
+.miror-v10-state-053{--miror-v10-delay:0.02s;--miror-v10-opacity:0.71;--miror-v10-offset:8px;}
+.miror-v10-state-054{--miror-v10-delay:0.04s;--miror-v10-opacity:0.80;--miror-v10-offset:0px;}
+.miror-v10-state-055{--miror-v10-delay:0.06s;--miror-v10-opacity:0.89;--miror-v10-offset:1px;}
+.miror-v10-state-056{--miror-v10-delay:0.08s;--miror-v10-opacity:0.35;--miror-v10-offset:2px;}
+.miror-v10-state-057{--miror-v10-delay:0.10s;--miror-v10-opacity:0.44;--miror-v10-offset:3px;}
+.miror-v10-state-058{--miror-v10-delay:0.12s;--miror-v10-opacity:0.53;--miror-v10-offset:4px;}
+.miror-v10-state-059{--miror-v10-delay:0.14s;--miror-v10-opacity:0.62;--miror-v10-offset:5px;}
+.miror-v10-state-060{--miror-v10-delay:0.16s;--miror-v10-opacity:0.71;--miror-v10-offset:6px;}
+.miror-v10-state-061{--miror-v10-delay:0.18s;--miror-v10-opacity:0.80;--miror-v10-offset:7px;}
+.miror-v10-state-062{--miror-v10-delay:0.20s;--miror-v10-opacity:0.89;--miror-v10-offset:8px;}
+.miror-v10-state-063{--miror-v10-delay:0.22s;--miror-v10-opacity:0.35;--miror-v10-offset:0px;}
+.miror-v10-state-064{--miror-v10-delay:0.24s;--miror-v10-opacity:0.44;--miror-v10-offset:1px;}
+.miror-v10-state-065{--miror-v10-delay:0.00s;--miror-v10-opacity:0.53;--miror-v10-offset:2px;}
+.miror-v10-state-066{--miror-v10-delay:0.02s;--miror-v10-opacity:0.62;--miror-v10-offset:3px;}
+.miror-v10-state-067{--miror-v10-delay:0.04s;--miror-v10-opacity:0.71;--miror-v10-offset:4px;}
+.miror-v10-state-068{--miror-v10-delay:0.06s;--miror-v10-opacity:0.80;--miror-v10-offset:5px;}
+.miror-v10-state-069{--miror-v10-delay:0.08s;--miror-v10-opacity:0.89;--miror-v10-offset:6px;}
+.miror-v10-state-070{--miror-v10-delay:0.10s;--miror-v10-opacity:0.35;--miror-v10-offset:7px;}
+.miror-v10-state-071{--miror-v10-delay:0.12s;--miror-v10-opacity:0.44;--miror-v10-offset:8px;}
+.miror-v10-state-072{--miror-v10-delay:0.14s;--miror-v10-opacity:0.53;--miror-v10-offset:0px;}
+.miror-v10-state-073{--miror-v10-delay:0.16s;--miror-v10-opacity:0.62;--miror-v10-offset:1px;}
+.miror-v10-state-074{--miror-v10-delay:0.18s;--miror-v10-opacity:0.71;--miror-v10-offset:2px;}
+.miror-v10-state-075{--miror-v10-delay:0.20s;--miror-v10-opacity:0.80;--miror-v10-offset:3px;}
+.miror-v10-state-076{--miror-v10-delay:0.22s;--miror-v10-opacity:0.89;--miror-v10-offset:4px;}
+.miror-v10-state-077{--miror-v10-delay:0.24s;--miror-v10-opacity:0.35;--miror-v10-offset:5px;}
+.miror-v10-state-078{--miror-v10-delay:0.00s;--miror-v10-opacity:0.44;--miror-v10-offset:6px;}
+.miror-v10-state-079{--miror-v10-delay:0.02s;--miror-v10-opacity:0.53;--miror-v10-offset:7px;}
+.miror-v10-state-080{--miror-v10-delay:0.04s;--miror-v10-opacity:0.62;--miror-v10-offset:8px;}
+.miror-v10-state-081{--miror-v10-delay:0.06s;--miror-v10-opacity:0.71;--miror-v10-offset:0px;}
+.miror-v10-state-082{--miror-v10-delay:0.08s;--miror-v10-opacity:0.80;--miror-v10-offset:1px;}
+.miror-v10-state-083{--miror-v10-delay:0.10s;--miror-v10-opacity:0.89;--miror-v10-offset:2px;}
+.miror-v10-state-084{--miror-v10-delay:0.12s;--miror-v10-opacity:0.35;--miror-v10-offset:3px;}
+.miror-v10-state-085{--miror-v10-delay:0.14s;--miror-v10-opacity:0.44;--miror-v10-offset:4px;}
+.miror-v10-state-086{--miror-v10-delay:0.16s;--miror-v10-opacity:0.53;--miror-v10-offset:5px;}
+.miror-v10-state-087{--miror-v10-delay:0.18s;--miror-v10-opacity:0.62;--miror-v10-offset:6px;}
+.miror-v10-state-088{--miror-v10-delay:0.20s;--miror-v10-opacity:0.71;--miror-v10-offset:7px;}
+.miror-v10-state-089{--miror-v10-delay:0.22s;--miror-v10-opacity:0.80;--miror-v10-offset:8px;}
+.miror-v10-state-090{--miror-v10-delay:0.24s;--miror-v10-opacity:0.89;--miror-v10-offset:0px;}
+.miror-v10-state-091{--miror-v10-delay:0.00s;--miror-v10-opacity:0.35;--miror-v10-offset:1px;}
+.miror-v10-state-092{--miror-v10-delay:0.02s;--miror-v10-opacity:0.44;--miror-v10-offset:2px;}
+.miror-v10-state-093{--miror-v10-delay:0.04s;--miror-v10-opacity:0.53;--miror-v10-offset:3px;}
+.miror-v10-state-094{--miror-v10-delay:0.06s;--miror-v10-opacity:0.62;--miror-v10-offset:4px;}
+.miror-v10-state-095{--miror-v10-delay:0.08s;--miror-v10-opacity:0.71;--miror-v10-offset:5px;}
+.miror-v10-state-096{--miror-v10-delay:0.10s;--miror-v10-opacity:0.80;--miror-v10-offset:6px;}
+.miror-v10-state-097{--miror-v10-delay:0.12s;--miror-v10-opacity:0.89;--miror-v10-offset:7px;}
+.miror-v10-state-098{--miror-v10-delay:0.14s;--miror-v10-opacity:0.35;--miror-v10-offset:8px;}
+.miror-v10-state-099{--miror-v10-delay:0.16s;--miror-v10-opacity:0.44;--miror-v10-offset:0px;}
+.miror-v10-state-100{--miror-v10-delay:0.18s;--miror-v10-opacity:0.53;--miror-v10-offset:1px;}
+.miror-v10-state-101{--miror-v10-delay:0.20s;--miror-v10-opacity:0.62;--miror-v10-offset:2px;}
+.miror-v10-state-102{--miror-v10-delay:0.22s;--miror-v10-opacity:0.71;--miror-v10-offset:3px;}
+.miror-v10-state-103{--miror-v10-delay:0.24s;--miror-v10-opacity:0.80;--miror-v10-offset:4px;}
+.miror-v10-state-104{--miror-v10-delay:0.00s;--miror-v10-opacity:0.89;--miror-v10-offset:5px;}
+.miror-v10-state-105{--miror-v10-delay:0.02s;--miror-v10-opacity:0.35;--miror-v10-offset:6px;}
+.miror-v10-state-106{--miror-v10-delay:0.04s;--miror-v10-opacity:0.44;--miror-v10-offset:7px;}
+.miror-v10-state-107{--miror-v10-delay:0.06s;--miror-v10-opacity:0.53;--miror-v10-offset:8px;}
+.miror-v10-state-108{--miror-v10-delay:0.08s;--miror-v10-opacity:0.62;--miror-v10-offset:0px;}
+.miror-v10-state-109{--miror-v10-delay:0.10s;--miror-v10-opacity:0.71;--miror-v10-offset:1px;}
+.miror-v10-state-110{--miror-v10-delay:0.12s;--miror-v10-opacity:0.80;--miror-v10-offset:2px;}
+.miror-v10-state-111{--miror-v10-delay:0.14s;--miror-v10-opacity:0.89;--miror-v10-offset:3px;}
+.miror-v10-state-112{--miror-v10-delay:0.16s;--miror-v10-opacity:0.35;--miror-v10-offset:4px;}
+.miror-v10-state-113{--miror-v10-delay:0.18s;--miror-v10-opacity:0.44;--miror-v10-offset:5px;}
+.miror-v10-state-114{--miror-v10-delay:0.20s;--miror-v10-opacity:0.53;--miror-v10-offset:6px;}
+.miror-v10-state-115{--miror-v10-delay:0.22s;--miror-v10-opacity:0.62;--miror-v10-offset:7px;}
+.miror-v10-state-116{--miror-v10-delay:0.24s;--miror-v10-opacity:0.71;--miror-v10-offset:8px;}
+.miror-v10-state-117{--miror-v10-delay:0.00s;--miror-v10-opacity:0.80;--miror-v10-offset:0px;}
+.miror-v10-state-118{--miror-v10-delay:0.02s;--miror-v10-opacity:0.89;--miror-v10-offset:1px;}
+.miror-v10-state-119{--miror-v10-delay:0.04s;--miror-v10-opacity:0.35;--miror-v10-offset:2px;}
+.miror-v10-state-120{--miror-v10-delay:0.06s;--miror-v10-opacity:0.44;--miror-v10-offset:3px;}
+.miror-v10-state-121{--miror-v10-delay:0.08s;--miror-v10-opacity:0.53;--miror-v10-offset:4px;}
+.miror-v10-state-122{--miror-v10-delay:0.10s;--miror-v10-opacity:0.62;--miror-v10-offset:5px;}
+.miror-v10-state-123{--miror-v10-delay:0.12s;--miror-v10-opacity:0.71;--miror-v10-offset:6px;}
+.miror-v10-state-124{--miror-v10-delay:0.14s;--miror-v10-opacity:0.80;--miror-v10-offset:7px;}
+.miror-v10-state-125{--miror-v10-delay:0.16s;--miror-v10-opacity:0.89;--miror-v10-offset:8px;}
+.miror-v10-state-126{--miror-v10-delay:0.18s;--miror-v10-opacity:0.35;--miror-v10-offset:0px;}
+.miror-v10-state-127{--miror-v10-delay:0.20s;--miror-v10-opacity:0.44;--miror-v10-offset:1px;}
+.miror-v10-state-128{--miror-v10-delay:0.22s;--miror-v10-opacity:0.53;--miror-v10-offset:2px;}
+.miror-v10-state-129{--miror-v10-delay:0.24s;--miror-v10-opacity:0.62;--miror-v10-offset:3px;}
+.miror-v10-state-130{--miror-v10-delay:0.00s;--miror-v10-opacity:0.71;--miror-v10-offset:4px;}
+.miror-v10-state-131{--miror-v10-delay:0.02s;--miror-v10-opacity:0.80;--miror-v10-offset:5px;}
+.miror-v10-state-132{--miror-v10-delay:0.04s;--miror-v10-opacity:0.89;--miror-v10-offset:6px;}
+.miror-v10-state-133{--miror-v10-delay:0.06s;--miror-v10-opacity:0.35;--miror-v10-offset:7px;}
+.miror-v10-state-134{--miror-v10-delay:0.08s;--miror-v10-opacity:0.44;--miror-v10-offset:8px;}
+.miror-v10-state-135{--miror-v10-delay:0.10s;--miror-v10-opacity:0.53;--miror-v10-offset:0px;}
+.miror-v10-state-136{--miror-v10-delay:0.12s;--miror-v10-opacity:0.62;--miror-v10-offset:1px;}
+.miror-v10-state-137{--miror-v10-delay:0.14s;--miror-v10-opacity:0.71;--miror-v10-offset:2px;}
+.miror-v10-state-138{--miror-v10-delay:0.16s;--miror-v10-opacity:0.80;--miror-v10-offset:3px;}
+.miror-v10-state-139{--miror-v10-delay:0.18s;--miror-v10-opacity:0.89;--miror-v10-offset:4px;}
+.miror-v10-state-140{--miror-v10-delay:0.20s;--miror-v10-opacity:0.35;--miror-v10-offset:5px;}
+.miror-v10-state-141{--miror-v10-delay:0.22s;--miror-v10-opacity:0.44;--miror-v10-offset:6px;}
+.miror-v10-state-142{--miror-v10-delay:0.24s;--miror-v10-opacity:0.53;--miror-v10-offset:7px;}
+.miror-v10-state-143{--miror-v10-delay:0.00s;--miror-v10-opacity:0.62;--miror-v10-offset:8px;}
+.miror-v10-state-144{--miror-v10-delay:0.02s;--miror-v10-opacity:0.71;--miror-v10-offset:0px;}
+.miror-v10-state-145{--miror-v10-delay:0.04s;--miror-v10-opacity:0.80;--miror-v10-offset:1px;}
+.miror-v10-state-146{--miror-v10-delay:0.06s;--miror-v10-opacity:0.89;--miror-v10-offset:2px;}
+.miror-v10-state-147{--miror-v10-delay:0.08s;--miror-v10-opacity:0.35;--miror-v10-offset:3px;}
+.miror-v10-state-148{--miror-v10-delay:0.10s;--miror-v10-opacity:0.44;--miror-v10-offset:4px;}
+.miror-v10-state-149{--miror-v10-delay:0.12s;--miror-v10-opacity:0.53;--miror-v10-offset:5px;}
+.miror-v10-state-150{--miror-v10-delay:0.14s;--miror-v10-opacity:0.62;--miror-v10-offset:6px;}
+.miror-v10-state-151{--miror-v10-delay:0.16s;--miror-v10-opacity:0.71;--miror-v10-offset:7px;}
+.miror-v10-state-152{--miror-v10-delay:0.18s;--miror-v10-opacity:0.80;--miror-v10-offset:8px;}
+.miror-v10-state-153{--miror-v10-delay:0.20s;--miror-v10-opacity:0.89;--miror-v10-offset:0px;}
+.miror-v10-state-154{--miror-v10-delay:0.22s;--miror-v10-opacity:0.35;--miror-v10-offset:1px;}
+.miror-v10-state-155{--miror-v10-delay:0.24s;--miror-v10-opacity:0.44;--miror-v10-offset:2px;}
+.miror-v10-state-156{--miror-v10-delay:0.00s;--miror-v10-opacity:0.53;--miror-v10-offset:3px;}
+.miror-v10-state-157{--miror-v10-delay:0.02s;--miror-v10-opacity:0.62;--miror-v10-offset:4px;}
+.miror-v10-state-158{--miror-v10-delay:0.04s;--miror-v10-opacity:0.71;--miror-v10-offset:5px;}
+.miror-v10-state-159{--miror-v10-delay:0.06s;--miror-v10-opacity:0.80;--miror-v10-offset:6px;}
+.miror-v10-state-160{--miror-v10-delay:0.08s;--miror-v10-opacity:0.89;--miror-v10-offset:7px;}
+.miror-v10-state-161{--miror-v10-delay:0.10s;--miror-v10-opacity:0.35;--miror-v10-offset:8px;}
+.miror-v10-state-162{--miror-v10-delay:0.12s;--miror-v10-opacity:0.44;--miror-v10-offset:0px;}
+.miror-v10-state-163{--miror-v10-delay:0.14s;--miror-v10-opacity:0.53;--miror-v10-offset:1px;}
+.miror-v10-state-164{--miror-v10-delay:0.16s;--miror-v10-opacity:0.62;--miror-v10-offset:2px;}
+.miror-v10-state-165{--miror-v10-delay:0.18s;--miror-v10-opacity:0.71;--miror-v10-offset:3px;}
+.miror-v10-state-166{--miror-v10-delay:0.20s;--miror-v10-opacity:0.80;--miror-v10-offset:4px;}
+.miror-v10-state-167{--miror-v10-delay:0.22s;--miror-v10-opacity:0.89;--miror-v10-offset:5px;}
+.miror-v10-state-168{--miror-v10-delay:0.24s;--miror-v10-opacity:0.35;--miror-v10-offset:6px;}
+.miror-v10-state-169{--miror-v10-delay:0.00s;--miror-v10-opacity:0.44;--miror-v10-offset:7px;}
+.miror-v10-state-170{--miror-v10-delay:0.02s;--miror-v10-opacity:0.53;--miror-v10-offset:8px;}
+.miror-v10-state-171{--miror-v10-delay:0.04s;--miror-v10-opacity:0.62;--miror-v10-offset:0px;}
+.miror-v10-state-172{--miror-v10-delay:0.06s;--miror-v10-opacity:0.71;--miror-v10-offset:1px;}
+.miror-v10-state-173{--miror-v10-delay:0.08s;--miror-v10-opacity:0.80;--miror-v10-offset:2px;}
+.miror-v10-state-174{--miror-v10-delay:0.10s;--miror-v10-opacity:0.89;--miror-v10-offset:3px;}
+.miror-v10-state-175{--miror-v10-delay:0.12s;--miror-v10-opacity:0.35;--miror-v10-offset:4px;}
+.miror-v10-state-176{--miror-v10-delay:0.14s;--miror-v10-opacity:0.44;--miror-v10-offset:5px;}
+.miror-v10-state-177{--miror-v10-delay:0.16s;--miror-v10-opacity:0.53;--miror-v10-offset:6px;}
+.miror-v10-state-178{--miror-v10-delay:0.18s;--miror-v10-opacity:0.62;--miror-v10-offset:7px;}
+.miror-v10-state-179{--miror-v10-delay:0.20s;--miror-v10-opacity:0.71;--miror-v10-offset:8px;}
+.miror-v10-state-180{--miror-v10-delay:0.22s;--miror-v10-opacity:0.80;--miror-v10-offset:0px;}
+.miror-v10-state-181{--miror-v10-delay:0.24s;--miror-v10-opacity:0.89;--miror-v10-offset:1px;}
+.miror-v10-state-182{--miror-v10-delay:0.00s;--miror-v10-opacity:0.35;--miror-v10-offset:2px;}
+.miror-v10-state-183{--miror-v10-delay:0.02s;--miror-v10-opacity:0.44;--miror-v10-offset:3px;}
+.miror-v10-state-184{--miror-v10-delay:0.04s;--miror-v10-opacity:0.53;--miror-v10-offset:4px;}
+.miror-v10-state-185{--miror-v10-delay:0.06s;--miror-v10-opacity:0.62;--miror-v10-offset:5px;}
+.miror-v10-state-186{--miror-v10-delay:0.08s;--miror-v10-opacity:0.71;--miror-v10-offset:6px;}
+.miror-v10-state-187{--miror-v10-delay:0.10s;--miror-v10-opacity:0.80;--miror-v10-offset:7px;}
+.miror-v10-state-188{--miror-v10-delay:0.12s;--miror-v10-opacity:0.89;--miror-v10-offset:8px;}
+.miror-v10-state-189{--miror-v10-delay:0.14s;--miror-v10-opacity:0.35;--miror-v10-offset:0px;}
+.miror-v10-state-190{--miror-v10-delay:0.16s;--miror-v10-opacity:0.44;--miror-v10-offset:1px;}
+.miror-v10-state-191{--miror-v10-delay:0.18s;--miror-v10-opacity:0.53;--miror-v10-offset:2px;}
+.miror-v10-state-192{--miror-v10-delay:0.20s;--miror-v10-opacity:0.62;--miror-v10-offset:3px;}
+.miror-v10-state-193{--miror-v10-delay:0.22s;--miror-v10-opacity:0.71;--miror-v10-offset:4px;}
+.miror-v10-state-194{--miror-v10-delay:0.24s;--miror-v10-opacity:0.80;--miror-v10-offset:5px;}
+.miror-v10-state-195{--miror-v10-delay:0.00s;--miror-v10-opacity:0.89;--miror-v10-offset:6px;}
+.miror-v10-state-196{--miror-v10-delay:0.02s;--miror-v10-opacity:0.35;--miror-v10-offset:7px;}
+.miror-v10-state-197{--miror-v10-delay:0.04s;--miror-v10-opacity:0.44;--miror-v10-offset:8px;}
+.miror-v10-state-198{--miror-v10-delay:0.06s;--miror-v10-opacity:0.53;--miror-v10-offset:0px;}
+.miror-v10-state-199{--miror-v10-delay:0.08s;--miror-v10-opacity:0.62;--miror-v10-offset:1px;}
+.miror-v10-state-200{--miror-v10-delay:0.10s;--miror-v10-opacity:0.71;--miror-v10-offset:2px;}
+.miror-v10-state-201{--miror-v10-delay:0.12s;--miror-v10-opacity:0.80;--miror-v10-offset:3px;}
+.miror-v10-state-202{--miror-v10-delay:0.14s;--miror-v10-opacity:0.89;--miror-v10-offset:4px;}
+.miror-v10-state-203{--miror-v10-delay:0.16s;--miror-v10-opacity:0.35;--miror-v10-offset:5px;}
+.miror-v10-state-204{--miror-v10-delay:0.18s;--miror-v10-opacity:0.44;--miror-v10-offset:6px;}
+.miror-v10-state-205{--miror-v10-delay:0.20s;--miror-v10-opacity:0.53;--miror-v10-offset:7px;}
+.miror-v10-state-206{--miror-v10-delay:0.22s;--miror-v10-opacity:0.62;--miror-v10-offset:8px;}
+.miror-v10-state-207{--miror-v10-delay:0.24s;--miror-v10-opacity:0.71;--miror-v10-offset:0px;}
+.miror-v10-state-208{--miror-v10-delay:0.00s;--miror-v10-opacity:0.80;--miror-v10-offset:1px;}
+.miror-v10-state-209{--miror-v10-delay:0.02s;--miror-v10-opacity:0.89;--miror-v10-offset:2px;}
+.miror-v10-state-210{--miror-v10-delay:0.04s;--miror-v10-opacity:0.35;--miror-v10-offset:3px;}
+.miror-v10-state-211{--miror-v10-delay:0.06s;--miror-v10-opacity:0.44;--miror-v10-offset:4px;}
+.miror-v10-state-212{--miror-v10-delay:0.08s;--miror-v10-opacity:0.53;--miror-v10-offset:5px;}
+.miror-v10-state-213{--miror-v10-delay:0.10s;--miror-v10-opacity:0.62;--miror-v10-offset:6px;}
+.miror-v10-state-214{--miror-v10-delay:0.12s;--miror-v10-opacity:0.71;--miror-v10-offset:7px;}
+.miror-v10-state-215{--miror-v10-delay:0.14s;--miror-v10-opacity:0.80;--miror-v10-offset:8px;}
+.miror-v10-state-216{--miror-v10-delay:0.16s;--miror-v10-opacity:0.89;--miror-v10-offset:0px;}
+.miror-v10-state-217{--miror-v10-delay:0.18s;--miror-v10-opacity:0.35;--miror-v10-offset:1px;}
+.miror-v10-state-218{--miror-v10-delay:0.20s;--miror-v10-opacity:0.44;--miror-v10-offset:2px;}
+.miror-v10-state-219{--miror-v10-delay:0.22s;--miror-v10-opacity:0.53;--miror-v10-offset:3px;}
+.miror-v10-state-220{--miror-v10-delay:0.24s;--miror-v10-opacity:0.62;--miror-v10-offset:4px;}
+.miror-v10-state-221{--miror-v10-delay:0.00s;--miror-v10-opacity:0.71;--miror-v10-offset:5px;}
+.miror-v10-state-222{--miror-v10-delay:0.02s;--miror-v10-opacity:0.80;--miror-v10-offset:6px;}
+.miror-v10-state-223{--miror-v10-delay:0.04s;--miror-v10-opacity:0.89;--miror-v10-offset:7px;}
+.miror-v10-state-224{--miror-v10-delay:0.06s;--miror-v10-opacity:0.35;--miror-v10-offset:8px;}
+.miror-v10-state-225{--miror-v10-delay:0.08s;--miror-v10-opacity:0.44;--miror-v10-offset:0px;}
+.miror-v10-state-226{--miror-v10-delay:0.10s;--miror-v10-opacity:0.53;--miror-v10-offset:1px;}
+.miror-v10-state-227{--miror-v10-delay:0.12s;--miror-v10-opacity:0.62;--miror-v10-offset:2px;}
+.miror-v10-state-228{--miror-v10-delay:0.14s;--miror-v10-opacity:0.71;--miror-v10-offset:3px;}
+.miror-v10-state-229{--miror-v10-delay:0.16s;--miror-v10-opacity:0.80;--miror-v10-offset:4px;}
+.miror-v10-state-230{--miror-v10-delay:0.18s;--miror-v10-opacity:0.89;--miror-v10-offset:5px;}
+.miror-v10-state-231{--miror-v10-delay:0.20s;--miror-v10-opacity:0.35;--miror-v10-offset:6px;}
+.miror-v10-state-232{--miror-v10-delay:0.22s;--miror-v10-opacity:0.44;--miror-v10-offset:7px;}
+.miror-v10-state-233{--miror-v10-delay:0.24s;--miror-v10-opacity:0.53;--miror-v10-offset:8px;}
+.miror-v10-state-234{--miror-v10-delay:0.00s;--miror-v10-opacity:0.62;--miror-v10-offset:0px;}
+.miror-v10-state-235{--miror-v10-delay:0.02s;--miror-v10-opacity:0.71;--miror-v10-offset:1px;}
+.miror-v10-state-236{--miror-v10-delay:0.04s;--miror-v10-opacity:0.80;--miror-v10-offset:2px;}
+.miror-v10-state-237{--miror-v10-delay:0.06s;--miror-v10-opacity:0.89;--miror-v10-offset:3px;}
+.miror-v10-state-238{--miror-v10-delay:0.08s;--miror-v10-opacity:0.35;--miror-v10-offset:4px;}
+.miror-v10-state-239{--miror-v10-delay:0.10s;--miror-v10-opacity:0.44;--miror-v10-offset:5px;}
+.miror-v10-state-240{--miror-v10-delay:0.12s;--miror-v10-opacity:0.53;--miror-v10-offset:6px;}
+.miror-v10-state-241{--miror-v10-delay:0.14s;--miror-v10-opacity:0.62;--miror-v10-offset:7px;}
+.miror-v10-state-242{--miror-v10-delay:0.16s;--miror-v10-opacity:0.71;--miror-v10-offset:8px;}
+.miror-v10-state-243{--miror-v10-delay:0.18s;--miror-v10-opacity:0.80;--miror-v10-offset:0px;}
+.miror-v10-state-244{--miror-v10-delay:0.20s;--miror-v10-opacity:0.89;--miror-v10-offset:1px;}
+.miror-v10-state-245{--miror-v10-delay:0.22s;--miror-v10-opacity:0.35;--miror-v10-offset:2px;}
+.miror-v10-state-246{--miror-v10-delay:0.24s;--miror-v10-opacity:0.44;--miror-v10-offset:3px;}
+.miror-v10-state-247{--miror-v10-delay:0.00s;--miror-v10-opacity:0.53;--miror-v10-offset:4px;}
+.miror-v10-state-248{--miror-v10-delay:0.02s;--miror-v10-opacity:0.62;--miror-v10-offset:5px;}
+.miror-v10-state-249{--miror-v10-delay:0.04s;--miror-v10-opacity:0.71;--miror-v10-offset:6px;}
+.miror-v10-state-250{--miror-v10-delay:0.06s;--miror-v10-opacity:0.80;--miror-v10-offset:7px;}
+.miror-v10-state-251{--miror-v10-delay:0.08s;--miror-v10-opacity:0.89;--miror-v10-offset:8px;}
+.miror-v10-state-252{--miror-v10-delay:0.10s;--miror-v10-opacity:0.35;--miror-v10-offset:0px;}
+.miror-v10-state-253{--miror-v10-delay:0.12s;--miror-v10-opacity:0.44;--miror-v10-offset:1px;}
+.miror-v10-state-254{--miror-v10-delay:0.14s;--miror-v10-opacity:0.53;--miror-v10-offset:2px;}
+.miror-v10-state-255{--miror-v10-delay:0.16s;--miror-v10-opacity:0.62;--miror-v10-offset:3px;}
+.miror-v10-state-256{--miror-v10-delay:0.18s;--miror-v10-opacity:0.71;--miror-v10-offset:4px;}
+.miror-v10-state-257{--miror-v10-delay:0.20s;--miror-v10-opacity:0.80;--miror-v10-offset:5px;}
+.miror-v10-state-258{--miror-v10-delay:0.22s;--miror-v10-opacity:0.89;--miror-v10-offset:6px;}
+.miror-v10-state-259{--miror-v10-delay:0.24s;--miror-v10-opacity:0.35;--miror-v10-offset:7px;}
+.miror-v10-state-260{--miror-v10-delay:0.00s;--miror-v10-opacity:0.44;--miror-v10-offset:8px;}
+.miror-v10-state-261{--miror-v10-delay:0.02s;--miror-v10-opacity:0.53;--miror-v10-offset:0px;}
+.miror-v10-state-262{--miror-v10-delay:0.04s;--miror-v10-opacity:0.62;--miror-v10-offset:1px;}
+.miror-v10-state-263{--miror-v10-delay:0.06s;--miror-v10-opacity:0.71;--miror-v10-offset:2px;}
+.miror-v10-state-264{--miror-v10-delay:0.08s;--miror-v10-opacity:0.80;--miror-v10-offset:3px;}
+.miror-v10-state-265{--miror-v10-delay:0.10s;--miror-v10-opacity:0.89;--miror-v10-offset:4px;}
+.miror-v10-state-266{--miror-v10-delay:0.12s;--miror-v10-opacity:0.35;--miror-v10-offset:5px;}
+.miror-v10-state-267{--miror-v10-delay:0.14s;--miror-v10-opacity:0.44;--miror-v10-offset:6px;}
+.miror-v10-state-268{--miror-v10-delay:0.16s;--miror-v10-opacity:0.53;--miror-v10-offset:7px;}
+.miror-v10-state-269{--miror-v10-delay:0.18s;--miror-v10-opacity:0.62;--miror-v10-offset:8px;}
+.miror-v10-state-270{--miror-v10-delay:0.20s;--miror-v10-opacity:0.71;--miror-v10-offset:0px;}
+.miror-v10-state-271{--miror-v10-delay:0.22s;--miror-v10-opacity:0.80;--miror-v10-offset:1px;}
+.miror-v10-state-272{--miror-v10-delay:0.24s;--miror-v10-opacity:0.89;--miror-v10-offset:2px;}
+.miror-v10-state-273{--miror-v10-delay:0.00s;--miror-v10-opacity:0.35;--miror-v10-offset:3px;}
+.miror-v10-state-274{--miror-v10-delay:0.02s;--miror-v10-opacity:0.44;--miror-v10-offset:4px;}
+.miror-v10-state-275{--miror-v10-delay:0.04s;--miror-v10-opacity:0.53;--miror-v10-offset:5px;}
+.miror-v10-state-276{--miror-v10-delay:0.06s;--miror-v10-opacity:0.62;--miror-v10-offset:6px;}
+.miror-v10-state-277{--miror-v10-delay:0.08s;--miror-v10-opacity:0.71;--miror-v10-offset:7px;}
+.miror-v10-state-278{--miror-v10-delay:0.10s;--miror-v10-opacity:0.80;--miror-v10-offset:8px;}
+.miror-v10-state-279{--miror-v10-delay:0.12s;--miror-v10-opacity:0.89;--miror-v10-offset:0px;}
+.miror-v10-state-280{--miror-v10-delay:0.14s;--miror-v10-opacity:0.35;--miror-v10-offset:1px;}

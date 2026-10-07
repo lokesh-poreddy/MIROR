@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "../styles/v8-sections.css";
+@import "../styles/sections.css";
+@import "../styles/routing.css";
+@import "../styles/production.css";
 
 :root {
   --ink: #111315;

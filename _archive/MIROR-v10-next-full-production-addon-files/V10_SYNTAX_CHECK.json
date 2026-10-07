@@ -1,0 +1,469 @@
+{
+  "files": 23,
+  "errors": [
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Accessibility.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Admin.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Evidence.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10LegalTrust.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Loading.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10MediaRights.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Mobile.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10NotFound.tsx",
+      "message": "Expression expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "',' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Identifier expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "'}' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Expected corresponding JSX closing tag for 'section'."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "')' expected."
+    },
+    {
+      "file": "/mnt/data/MIROR-v10-final-production-addon/src/components/v10/MirorV10Performance.tsx",
+      "message": "Expression expected."
+    }
+  ]
+}

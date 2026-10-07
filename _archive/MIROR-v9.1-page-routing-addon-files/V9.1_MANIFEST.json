@@ -1,0 +1,62 @@
+{
+  "name": "MIROR V9.1 \u2014 Page Routing & Section Wiring",
+  "version": "9.1.0",
+  "purpose": "Corrective application wiring layer for the V9 corporate sections.",
+  "routes": [
+    "/about/leadership",
+    "/about/people",
+    "/careers",
+    "/clients",
+    "/contact",
+    "/faq",
+    "/insights",
+    "/locations",
+    "/resources",
+    "/sustainability",
+    "/why-miror",
+    "/corporate"
+  ],
+  "component_mounts": {
+    "/sustainability": [
+      "MirorV9Sustainability"
+    ],
+    "/about/people": [
+      "MirorV9People"
+    ],
+    "/about/leadership": [
+      "MirorV9Leadership"
+    ],
+    "/careers": [
+      "MirorV9Careers"
+    ],
+    "/clients": [
+      "MirorV9ClientsPartners"
+    ],
+    "/locations": [
+      "MirorV9Locations"
+    ],
+    "/insights": [
+      "MirorV9Insights"
+    ],
+    "/resources": [
+      "MirorV9Resources"
+    ],
+    "/why-miror": [
+      "MirorV9WhyMiror"
+    ],
+    "/faq": [
+      "MirorV9Faq"
+    ],
+    "/contact": [
+      "MirorV9Contact",
+      "MirorV9SmartContact"
+    ]
+  },
+  "alignment_system": [
+    "12-column desktop",
+    "3-column tablet index",
+    "1-column mobile"
+  ],
+  "mailbox": "p.lokeshreddy2005@gmail.com",
+  "section_line_requirement_preserved": true
+}

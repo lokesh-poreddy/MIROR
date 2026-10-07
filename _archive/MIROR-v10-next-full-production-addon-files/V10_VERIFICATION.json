@@ -1,0 +1,14 @@
+{
+  "typescript_files_checked": 23,
+  "typescript_syntax_errors": 98,
+  "route_mount_errors": [],
+  "feature_min_lines": 1091,
+  "feature_max_lines": 1091,
+  "feature_under_800": [],
+  "css_balanced": true,
+  "python_compile_exit": 0,
+  "sql_begin": true,
+  "sql_commit": true,
+  "sql_tables": true,
+  "sql_lines": 372
+}

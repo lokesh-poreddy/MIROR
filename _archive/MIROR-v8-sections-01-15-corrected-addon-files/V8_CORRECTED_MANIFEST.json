@@ -1,0 +1,98 @@
+{
+  "version": "V8.1-corrected-final",
+  "rule": "minimum 800 lines per individual section implementation file",
+  "sections": [
+    {
+      "file": "src/components/v8/MirorV8BuiltFromGroundUp.tsx",
+      "title": "BuiltFromGroundUp",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8Capabilities.tsx",
+      "title": "Capabilities",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8CapabilityMatrix.tsx",
+      "title": "CapabilityMatrix",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8CompanyStatement.tsx",
+      "title": "CompanyStatement",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8EngineeringHud.tsx",
+      "title": "EngineeringHud",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8EngineeringShowcase.tsx",
+      "title": "EngineeringShowcase",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8EngineeringTechnology.tsx",
+      "title": "EngineeringTechnology",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8ExecutionProcess.tsx",
+      "title": "ExecutionProcess",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8Hero.tsx",
+      "title": "Hero",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8LegacyTimeline.tsx",
+      "title": "LegacyTimeline",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8ProgressStory.tsx",
+      "title": "ProgressStory",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8ProjectCaseStudyEntry.tsx",
+      "title": "ProjectCaseStudyEntry",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8ProjectDirectory.tsx",
+      "title": "ProjectDirectory",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8QualitySafety.tsx",
+      "title": "QualitySafety",
+      "lines": 820,
+      "meets_800": true
+    },
+    {
+      "file": "src/components/v8/MirorV8SelectedWorks.tsx",
+      "title": "SelectedWorks",
+      "lines": 820,
+      "meets_800": true
+    }
+  ],
+  "css_lines": 1306,
+  "total_section_lines": 12300
+}

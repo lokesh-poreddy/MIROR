@@ -1,0 +1,46 @@
+exit_code=2
+
+src/app/about/leadership/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/about/leadership/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/about/leadership/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/about/leadership/page.tsx(75,3): error TS1109: Expression expected.
+src/app/about/people/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/about/people/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/about/people/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/about/people/page.tsx(75,3): error TS1109: Expression expected.
+src/app/careers/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/careers/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/careers/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/careers/page.tsx(75,3): error TS1109: Expression expected.
+src/app/clients/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/clients/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/clients/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/clients/page.tsx(75,3): error TS1109: Expression expected.
+src/app/contact/page.tsx(72,81): error TS1003: Identifier expected.
+src/app/contact/page.tsx(73,7): error TS2657: JSX expressions must have one parent element.
+src/app/contact/page.tsx(76,5): error TS1128: Declaration or statement expected.
+src/app/contact/page.tsx(77,3): error TS1109: Expression expected.
+src/app/faq/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/faq/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/faq/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/faq/page.tsx(75,3): error TS1109: Expression expected.
+src/app/insights/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/insights/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/insights/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/insights/page.tsx(75,3): error TS1109: Expression expected.
+src/app/locations/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/locations/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/locations/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/locations/page.tsx(75,3): error TS1109: Expression expected.
+src/app/resources/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/resources/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/resources/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/resources/page.tsx(75,3): error TS1109: Expression expected.
+src/app/sustainability/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/sustainability/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/sustainability/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/sustainability/page.tsx(75,3): error TS1109: Expression expected.
+src/app/why-miror/page.tsx(70,81): error TS1003: Identifier expected.
+src/app/why-miror/page.tsx(71,7): error TS2657: JSX expressions must have one parent element.
+src/app/why-miror/page.tsx(74,5): error TS1128: Declaration or statement expected.
+src/app/why-miror/page.tsx(75,3): error TS1109: Expression expected.

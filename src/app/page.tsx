@@ -37,7 +37,7 @@ export default function HomePage() {
         <div className="section-grid"><div className="section-kicker">Capabilities</div><div><h2>Infrastructure, civil construction and structural execution.</h2><div className="section-copy"><p>Publicly discoverable project evidence supports irrigation/canal-related CM & CD work, RCC and aluminium formwork execution. The service taxonomy will expand only when the client confirms additional capabilities.</p></div><Link className="button" href="/capabilities">View capabilities ↗</Link></div></div>
       </section>
 
-      <footer className="footer"><div className="footer-top"><div className="footer-brand">MIROR.</div><nav className="footer-links"><Link href="/about">About</Link><Link href="/capabilities">Capabilities</Link><Link href="/work">Our Work</Link><Link href="/careers">Careers</Link><Link href="/quality-safety">Quality & Safety</Link><Link href="/contact">Contact</Link></nav></div><div className="footer-bottom"><span>{company.registeredOffice}</span><span>© {new Date().getFullYear()} Miror</span></div></footer>
+      <footer className="footer"><div className="footer-top"><div className="footer-brand">MIROR.</div><nav className="footer-links"><Link href="/about">About</Link><Link href="/capabilities">Capabilities</Link><Link href="/work">Our Work</Link><Link href="/careers">Careers</Link><Link href="/quality-safety">Quality & Safety</Link><Link href="/contact">Contact</Link></nav></div><div className="footer-bottom"><span>{company.registeredOffice}</span><span>© 2026 Miror</span></div></footer>
     </main>
   );
 }

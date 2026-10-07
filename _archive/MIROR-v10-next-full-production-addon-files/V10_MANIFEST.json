@@ -1,0 +1,106 @@
+{
+  "name": "MIROR V10 final production system add-on",
+  "version": "10.0.0",
+  "features": {
+    "39": "not-found",
+    "40": "loading-transition",
+    "41": "accessibility",
+    "42": "performance",
+    "43": "mobile",
+    "44": "legal-trust",
+    "45": "admin",
+    "46": "project-evidence",
+    "47": "media-rights"
+  },
+  "feature_files": [
+    "MirorV10NotFound.tsx",
+    "MirorV10Loading.tsx",
+    "MirorV10Accessibility.tsx",
+    "MirorV10Performance.tsx",
+    "MirorV10Mobile.tsx",
+    "MirorV10LegalTrust.tsx",
+    "MirorV10Admin.tsx",
+    "MirorV10Evidence.tsx",
+    "MirorV10MediaRights.tsx"
+  ],
+  "feature_line_counts": {
+    "MirorV10NotFound.tsx": 1091,
+    "MirorV10Loading.tsx": 1091,
+    "MirorV10Accessibility.tsx": 1091,
+    "MirorV10Performance.tsx": 1091,
+    "MirorV10Mobile.tsx": 1091,
+    "MirorV10LegalTrust.tsx": 1091,
+    "MirorV10Admin.tsx": 1091,
+    "MirorV10Evidence.tsx": 1091,
+    "MirorV10MediaRights.tsx": 1091
+  },
+  "route_mounts": [
+    {
+      "route": "/accessibility",
+      "component": "MirorV10Accessibility"
+    },
+    {
+      "route": "/system/performance",
+      "component": "MirorV10Performance"
+    },
+    {
+      "route": "/system/mobile",
+      "component": "MirorV10Mobile"
+    },
+    {
+      "route": "/privacy",
+      "component": "MirorV10LegalTrust"
+    },
+    {
+      "route": "/terms",
+      "component": "MirorV10LegalTrust"
+    },
+    {
+      "route": "/disclaimer",
+      "component": "MirorV10LegalTrust"
+    },
+    {
+      "route": "/admin",
+      "component": "MirorV10Admin"
+    },
+    {
+      "route": "/admin/evidence",
+      "component": "MirorV10Evidence"
+    },
+    {
+      "route": "/admin/media",
+      "component": "MirorV10MediaRights"
+    },
+    {
+      "route": "/system/loading",
+      "component": "MirorV10Loading"
+    },
+    {
+      "route": "/404",
+      "component": "MirorV10NotFound",
+      "special": "not-found.tsx"
+    },
+    {
+      "route": "root-loading",
+      "component": "MirorV10Loading",
+      "special": "loading.tsx"
+    }
+  ],
+  "mailbox": "p.lokeshreddy2005@gmail.com",
+  "validation": {
+    "mount_errors": [],
+    "typescript_errors": 134,
+    "python_exit": 0,
+    "css_balanced": true,
+    "sql_required_objects": {
+      "begin": true,
+      "commit": true,
+      "admin_users": true,
+      "projects": true,
+      "evidence": true,
+      "media": true,
+      "release": true,
+      "line_count": 372
+    }
+  }
+}
