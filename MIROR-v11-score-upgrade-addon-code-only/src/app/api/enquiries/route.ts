@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { escapePlainText, safeEmail, safePhone, withinLength } from "@/lib/content-governance";
 
-
+export const runtime = "nodejs";
 
 const MAX_BODY_BYTES = 48_000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
