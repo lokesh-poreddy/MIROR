@@ -15,23 +15,28 @@ function EvidenceBadge({ project }: { project: EvidenceProject }) {
   );
 }
 
-function ProjectMedia({ project }: { project: EvidenceProject }) {
+function ProjectMedia({ project, index }: { project: EvidenceProject, index: number }) {
   return (
-    <div className="miror-evidence-card__media" aria-label={`${project.title} media region`}>
-      <div className="miror-evidence-card__media-grid" aria-hidden="true" />
-      <div className="miror-evidence-card__media-mark" aria-hidden="true">M</div>
-      <div className="miror-evidence-card__media-copy">
-        <span>MEDIA</span>
-        <strong>Update when approved</strong>
+    <div className="miror-evidence-card__media" aria-label={`${project.title} media region`} style={{ position: 'relative' }}>
+      <img src={`/media/projects/project-0${index + 1}.png`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div className="miror-evidence-card__media-copy" style={{ 
+        position: 'absolute', bottom: '0', left: '0', width: '100%',
+        padding: '2rem 1rem 1rem', background: 'linear-gradient(to top, rgba(13,15,16,0.9), transparent)',
+        color: '#fff', fontSize: '10px', letterSpacing: '0.1em', 
+        fontWeight: 700, fontFamily: 'var(--miror-mono)', textTransform: 'uppercase',
+        display: 'flex', gap: '8px'
+      }}>
+        <span style={{opacity: 0.7}}>PROJECT 0{index + 1} / </span>
+        <strong>ORIGINAL STUDY</strong>
       </div>
     </div>
   );
 }
 
-function EvidenceProjectCard({ project }: { project: EvidenceProject }) {
+function EvidenceProjectCard({ project, index }: { project: EvidenceProject, index: number }) {
   return (
     <article className="miror-evidence-card">
-      <ProjectMedia project={project} />
+      <ProjectMedia project={project} index={index} />
       <div className="miror-evidence-card__body">
         <div className="miror-evidence-card__meta">
           <span>{project.category}</span>
@@ -68,7 +73,7 @@ export function ProjectEvidenceBoard({ compact = false }: { compact?: boolean })
       </div>
 
       <div className="miror-project-evidence__grid">
-        {evidenceProjects.map((project) => <EvidenceProjectCard key={project.slug} project={project} />)}
+        {evidenceProjects.map((project, index) => <EvidenceProjectCard key={project.slug} project={project} index={index} />)}
       </div>
 
       <div className="miror-project-evidence__queue">
