@@ -2,7 +2,7 @@ import Link from "next/link";
 import { listEnquiries, isPersistenceConfigured } from "@/lib/supabase-rest";
 import { isEmailNotificationConfigured } from "@/lib/notifications";
 
-
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Overview", robots: { index: false, follow: false } };
 
 export default async function AdminPage() {

@@ -11,7 +11,7 @@ const publicRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = "2026-10-07T00:00:00.000Z";
+  const lastModified = new Date();
   return [
     ...publicRoutes.map((route) => ({ url: siteOrigin() + route, lastModified })),
     ...projects.filter((project) => project.status === "verified-public").map((project) => ({ url: siteOrigin() + "/work/" + project.slug, lastModified })),
