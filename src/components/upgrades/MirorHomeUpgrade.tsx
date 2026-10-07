@@ -127,7 +127,7 @@ export function MirorHomeUpgrade() {
       </section>
 
       <footer className="miror-upgrade-footer">
-        <div className="miror-upgrade-footer__brand">MIROR<span>.</span></div>
+        <div className="miror-upgrade-footer__brand">MIROR<span>®</span></div>
         <div className="miror-upgrade-footer__grid">
           <div><span>Construction · Infrastructure · Execution</span><small>Ongole · Andhra Pradesh</small></div>
           <nav aria-label="Footer navigation"><Link href="/about">About</Link><Link href="/capabilities">Capabilities</Link><Link href="/engineering">Engineering</Link><Link href="/work">Work</Link><Link href="/quality-safety">Quality & Safety</Link><Link href="/contact">Contact</Link></nav>

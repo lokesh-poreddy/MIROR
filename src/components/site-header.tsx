@@ -80,7 +80,7 @@ export function SiteHeader() {
     <>
       <header className="miror-upgrade-header">
         <Link href="/" className="miror-upgrade-header__brand" aria-label="Miror home">
-          MIROR<span>.</span>
+          MIROR<span>®</span>
         </Link>
         <nav className="miror-upgrade-header__nav" aria-label="Primary navigation">
           {primary.map((item) => (
