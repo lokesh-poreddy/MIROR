@@ -51,7 +51,7 @@ export function SiteHeaderV12() {
   return (
     <>
       <header className="v12-header">
-        <Link className="v12-brand" href="/" aria-label="Miror Constructions home">MIROR<span>®</span></Link>
+        <Link className="v12-brand" href="/" aria-label="Miror Constructions home">MIROR<span className="miror-registered">®</span></Link>
         <nav className="v12-nav" aria-label="Primary navigation">
           {primary.map((item) => <Link key={item.href} className={active(pathname, item.href) ? "is-active" : ""} href={item.href}>{item.label}</Link>)}
         </nav>

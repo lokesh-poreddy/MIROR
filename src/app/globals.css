@@ -19,6 +19,16 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: Aria
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
+.miror-registered {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
+  vertical-align: top;
+}
+
 .site-header {
   position: fixed; inset: 0 0 auto; z-index: 100;
   display: flex; justify-content: space-between; align-items: center;

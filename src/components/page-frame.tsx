@@ -129,7 +129,7 @@ function PageFooter() {
     <footer className={PAGE_STYLE.footer}>
       <div className={PAGE_STYLE.footerGrid}>
         <div>
-          <div className="miror-v9-footer-brand">MIROR<span>®</span></div>
+          <div className="miror-v9-footer-brand">MIROR<span className="miror-registered">®</span></div>
           <p>Construction, infrastructure and engineering execution.</p>
         </div>
         <nav aria-label="Footer navigation">
