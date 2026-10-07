@@ -1,0 +1,3 @@
+import { ProjectCaseStudies } from "@/components/v12/ProjectCaseStudies";
+export const metadata={title:"Our Work"};
+export default function WorkPage(){return <main className="v12-shell v12-page"><section className="v12-page-hero"><div className="v12-container v12-page-hero__grid"><div><span className="v12-kicker">Our Work / 01</span></div><div><h1 className="v12-display">Project stories built around what can be documented.</h1><p>The public portfolio distinguishes verified project evidence from future client-approved content, making the work section expandable without weakening credibility.</p></div></div></section><ProjectCaseStudies/></main>}
