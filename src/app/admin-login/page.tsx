@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-export const dynamic = 'force-dynamic';
 import { redirect } from "next/navigation";
 import { getAdminSession, isAdminConfigured } from "@/lib/admin-session";
 import { Suspense } from "react";

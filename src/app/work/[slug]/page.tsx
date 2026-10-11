@@ -4,6 +4,8 @@ import { projects } from "@/data/projects";
 import { EngineeringStudio } from "@/components/v12/EngineeringStudio";
 import { ProjectMedia } from "@/components/v12/ProjectMedia";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
