@@ -56,13 +56,12 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "export",
   reactStrictMode: true,
-  cacheComponents: true,
-  partialPrefetching: true,
   poweredByHeader: false,
   compress: true,
   images: {
-    formats: ["image/avif", "image/webp"],
+    unoptimized: true,
   },
   async headers() {
     return [
