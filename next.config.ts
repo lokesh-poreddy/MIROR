@@ -57,6 +57,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: process.env.NODE_ENV === "production" ? "/MIROR.github.io" : "",
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
