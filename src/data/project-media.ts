@@ -1,13 +1,15 @@
+import { assetPath } from "@/lib/assets";
+
 export type ProjectMediaAsset =
   | { type: "image"; src: string; alt: string; credit?: string; license?: string; approved: true }
   | { type: "video"; src: string; poster?: string; title: string; credit?: string; license?: string; approved: true };
 
 const registry: Record<string, ProjectMediaAsset[]> = {
   "hnss-kuppam-branch-canal-phase-ii": [
-    { type: "image", src: "/media/projects/project-01.png", alt: "HNSS Kuppam Branch Canal", approved: true }
+    { type: "image", src: assetPath("/media/projects/project-01.png"), alt: "HNSS Kuppam Branch Canal", approved: true }
   ],
   "revasa-la-valora": [
-    { type: "image", src: "/media/projects/project-02.png", alt: "Revasa Là Valora", approved: true }
+    { type: "image", src: assetPath("/media/projects/project-02.png"), alt: "Revasa Là Valora", approved: true }
   ],
 };
 

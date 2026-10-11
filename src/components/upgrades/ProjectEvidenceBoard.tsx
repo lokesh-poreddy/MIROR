@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { assetPath } from "@/lib/assets";
 import {
   evidenceProjects,
   formatEvidenceLabel,
@@ -18,7 +19,7 @@ function EvidenceBadge({ project }: { project: EvidenceProject }) {
 function ProjectMedia({ project, index }: { project: EvidenceProject, index: number }) {
   return (
     <div className="miror-evidence-card__media" aria-label={`${project.title} media region`} style={{ position: 'relative' }}>
-      <img src={`/media/projects/project-0${index + 1}.png`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <img src={assetPath(`/media/projects/project-0${index + 1}.png`)} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       <div className="miror-evidence-card__media-copy" style={{ 
         position: 'absolute', bottom: '0', left: '0', width: '100%',
         padding: '2rem 1rem 1rem', background: 'linear-gradient(to top, rgba(13,15,16,0.9), transparent)',

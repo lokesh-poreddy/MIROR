@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { assetPath } from "@/lib/assets";
 import { EngineeringStudio } from "@/components/v12/EngineeringStudio";
 import { ProjectCaseStudies } from "@/components/v12/ProjectCaseStudies";
 import { CapabilityShowcase } from "@/components/v12/CapabilityShowcase";
@@ -17,7 +18,7 @@ export function RoyalHome(){return <main className="v12-shell">
       <p>Who the company is, what it can do, where it works, what it has built, how it executes, and how to begin a conversation.</p>
     </div>
     <div style={{ position: 'relative', aspectRatio: '3/4', backgroundColor: '#e5e5e5', width: '100%', overflow: 'hidden' }}>
-      <img src="/media/projects/surveyor.jpg" alt="Surveyor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <img src={assetPath("/media/projects/surveyor.jpg")} alt="Surveyor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       <div style={{
           position: 'absolute', right: '0', bottom: '0',
           backgroundColor: '#0d0f10', color: '#fff',
